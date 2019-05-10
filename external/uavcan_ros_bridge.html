@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>uavcan_ros_bridge &mdash; smarc_project 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SMaRC Simulator" href="../simulator.html" />
+    <link rel="prev" title="smarc_simulations" href="smarc_simulations.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> smarc_project
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../smarc_project.html">Package Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/auvlib-docs/">auvlib</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/flexxros-docs/">flexxros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bathymetric_slam.html">Bathymetric Graph SLAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rosinstall.html">rosinstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roslaunch_monitor.html">roslaunch_monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_docs.html">smarc_docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_simulations.html">smarc_simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_simulations.html#setting-up-gazebo-and-uuv-simulator">Setting up gazebo and uuv_simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_simulations.html#running-a-basic-simulation">Running a basic simulation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">uavcan_ros_bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies-building">Dependencies &amp; building</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-new-conversions">Adding new conversions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#existing-conversions-work-in-progress">Existing conversions (<em>work in progress</em>)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">ROS to UAVCAN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">UAVCAN to ROS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../smarc_project.html#tutorials">Tutorials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smarc_project</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../smarc_project.html">Package Documentation</a> &raquo;</li>
+        
+      <li>uavcan_ros_bridge</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/external/uavcan_ros_bridge.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="uavcan-ros-bridge">
+<h1>uavcan_ros_bridge<a class="headerlink" href="#uavcan-ros-bridge" title="Permalink to this headline">¶</a></h1>
+<p>Bridge for communication between ROS and the uavcan CAN-bus protocol</p>
+<div class="section" id="dependencies-building">
+<h2>Dependencies &amp; building<a class="headerlink" href="#dependencies-building" title="Permalink to this headline">¶</a></h2>
+<p>This package requires <a class="reference external" href="https://github.com/UAVCAN/libuavcan">libuavcan</a> to be installed on the
+computer. Follow the instructions on their website to install the library. Once done, go into
+the folder <code class="docutils literal notranslate"><span class="pre">/path/to/libuavcan/libuavcan/dsdl_compiler/pyuavcan/</span></code> and execute:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre>sudo python setup.py install
+</pre></div>
+</div>
+<p>Then, simply put this project into a catkin workspace and run <code class="docutils literal notranslate"><span class="pre">catkin_make</span></code> to build everything.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Launch conversion in both directions (between uavcan and ros) by running the launch file:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre>roslaunch uavcan_ros_bridge bridge.launch
+</pre></div>
+</div>
+<p>This will launch two nodes: the <code class="docutils literal notranslate"><span class="pre">uavcan_to_ros_bridge_node</span></code> and the <code class="docutils literal notranslate"><span class="pre">ros_to_uavcan_bridge_node</span></code>
+which handle the conversion in the respective directions. Any new type conversions should
+be added to the node that handles the relevant direction.</p>
+</div>
+<div class="section" id="adding-new-conversions">
+<h2>Adding new conversions<a class="headerlink" href="#adding-new-conversions" title="Permalink to this headline">¶</a></h2>
+<p>You can add new conversion headers for <a class="reference external" href="https://gitr.sys.kth.se/smarc-project/sam_drivers/tree/master/uavcan_ros_bridge/include/uavcan_ros_bridge/ros_to_uav">ros to uavcan</a>
+and <a class="reference external" href="https://gitr.sys.kth.se/smarc-project/sam_drivers/tree/master/uavcan_ros_bridge/include/uavcan_ros_bridge/uav_to_ros">uavcan to ros</a>
+with corresponding implementations in the <a class="reference external" href="https://gitr.sys.kth.se/smarc-project/sam_drivers/tree/master/uavcan_ros_bridge/src">src folder</a>. An example implementation for an IMU might look like this:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span class="k">template</span> <span class="o">&lt;&gt;</span>
+<span class="kt">bool</span> <span class="n">convert</span><span class="p">(</span><span class="k">const</span> <span class="n">uavcan</span><span class="o">::</span><span class="n">equipment</span><span class="o">::</span><span class="n">ahrs</span><span class="o">::</span><span class="n">RawIMU</span><span class="o">&amp;</span> <span class="n">uav_msg</span><span class="p">,</span> <span class="n">sensor_msgs</span><span class="o">::</span><span class="n">Imu</span><span class="o">&amp;</span> <span class="n">ros_msg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">ros_msg</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">convert_timestamp</span><span class="p">(</span><span class="n">uav_msg</span><span class="p">.</span><span class="n">timestamp</span><span class="p">);</span>
+    <span class="n">ros_msg</span><span class="p">.</span><span class="n">linear_acceleration</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">uav_msg</span><span class="p">.</span><span class="n">accelerometer_latest</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="n">ros_msg</span><span class="p">.</span><span class="n">linear_acceleration</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">uav_msg</span><span class="p">.</span><span class="n">accelerometer_latest</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="n">ros_msg</span><span class="p">.</span><span class="n">linear_acceleration</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">uav_msg</span><span class="p">.</span><span class="n">accelerometer_latest</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="n">ros_msg</span><span class="p">.</span><span class="n">angular_velocity</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">uav_msg</span><span class="p">.</span><span class="n">rate_gyro_latest</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="n">ros_msg</span><span class="p">.</span><span class="n">angular_velocity</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">uav_msg</span><span class="p">.</span><span class="n">rate_gyro_latest</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="n">ros_msg</span><span class="p">.</span><span class="n">angular_velocity</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">uav_msg</span><span class="p">.</span><span class="n">rate_gyro_latest</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You then need to add them to the build configuration in the cmake file <a class="reference external" href="https://gitr.sys.kth.se/smarc-project/sam_drivers/blob/master/uavcan_ros_bridge/CMakeLists.txt#L133">like this</a>
+and link them into one of the bridges (the publisher or the subscriber) <a class="reference external" href="https://gitr.sys.kth.se/smarc-project/sam_drivers/blob/master/uavcan_ros_bridge/CMakeLists.txt#L181">like this</a>.
+Finally add them to either of the bridge nodes <code class="docutils literal notranslate"><span class="pre">uavcan_to_ros_bridge</span></code> or <code class="docutils literal notranslate"><span class="pre">ros_to_uavcan_bridge</span></code> similar to the
+<a class="reference external" href="https://gitr.sys.kth.se/smarc-project/sam_drivers/blob/master/uavcan_ros_bridge/src/ros_to_uavcan_bridge.cpp#L46">already existing conversions</a>,
+i.e. like:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span class="nt">ros_to_uav</span><span class="o">:</span><span class="nd">:ConversionServer</span><span class="o">&lt;</span><span class="nt">uavcan</span><span class="o">:</span><span class="nd">:equipment</span><span class="o">:</span><span class="nd">:actuator</span><span class="o">:</span><span class="nd">:ArrayCommand</span><span class="o">,</span> <span class="nt">std_msgs</span><span class="o">:</span><span class="nd">:Float32</span><span class="o">&gt;</span> <span class="nt">server</span><span class="o">(</span><span class="nt">uav_node</span><span class="o">,</span> <span class="nt">ros_node</span><span class="o">,</span> <span class="s2">&quot;uavcan_command&quot;</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span class="nt">uav_to_ros</span><span class="o">:</span><span class="nd">:ConversionServer</span><span class="o">&lt;</span><span class="nt">uavcan</span><span class="o">:</span><span class="nd">:equipment</span><span class="o">:</span><span class="nd">:ahrs</span><span class="o">:</span><span class="nd">:RawIMU</span><span class="o">,</span> <span class="nt">sensor_msgs</span><span class="o">:</span><span class="nd">:Imu</span><span class="o">&gt;</span> <span class="nt">server</span><span class="o">(</span><span class="nt">uav_node</span><span class="o">,</span> <span class="nt">ros_node</span><span class="o">,</span> <span class="s2">&quot;uavcan_imu&quot;</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">uavcan_command</span></code> and <code class="docutils literal notranslate"><span class="pre">uavcan_imu</span></code> are the ros topics being subscribed to and published to respectively.</p>
+</div>
+<div class="section" id="existing-conversions-work-in-progress">
+<h2>Existing conversions (<em>work in progress</em>)<a class="headerlink" href="#existing-conversions-work-in-progress" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>ROS to UAVCAN<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">std_msgs/Float32</span></code> to <code class="docutils literal notranslate"><span class="pre">uavcan.equipment.actuator.ArrayCommand</span></code> on ros topic <code class="docutils literal notranslate"><span class="pre">/uavcan_command</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">sam_msgs/ArrayCommand</span></code> to <code class="docutils literal notranslate"><span class="pre">uavcan.equipment.actuator.ArrayCommand</span></code> on ros topic <code class="docutils literal notranslate"><span class="pre">/uavcan_array_command</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">std_msgs/Int32</span></code> to <code class="docutils literal notranslate"><span class="pre">uavcan.equipment.esc.RPMCommand</span></code> on ros topic <code class="docutils literal notranslate"><span class="pre">/ros_to_uavcan_bridge_node/rpm_command</span></code></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>UAVCAN to ROS<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">uavcan.equipment.ahrs.RawIMU</span></code> to <code class="docutils literal notranslate"><span class="pre">sensor_msgs/Imu</span></code> on ros topic <code class="docutils literal notranslate"><span class="pre">/uavcan_imu</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">uavcan.equipment.gnss.Fix</span></code> to <code class="docutils literal notranslate"><span class="pre">sensor_msgs/NavSatFix</span></code> on ros topic <code class="docutils literal notranslate"><span class="pre">/uavcan_to_ros_bridge_node/gps_fix</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">uavcan.equipment.power.BatteryInfo</span></code> to <code class="docutils literal notranslate"><span class="pre">sensor_msgs/BatteryState</span></code> on ros topic <code class="docutils literal notranslate"><span class="pre">/uavcan_to_ros_bridge_node/battery_state</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">uavcan.equipment.ahrs.MagneticFieldStrength</span></code> to <code class="docutils literal notranslate"><span class="pre">sensor_msgs/MagneticField</span></code> on ros topic <code class="docutils literal notranslate"><span class="pre">/uavcan_to_ros_bridge_node/magnetic_field</span></code></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../simulator.html" class="btn btn-neutral float-right" title="SMaRC Simulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="smarc_simulations.html" class="btn btn-neutral" title="smarc_simulations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nils Bore
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

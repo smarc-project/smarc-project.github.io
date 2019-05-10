@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>SMaRC Project Documentation &mdash; smarc_project 0.1 documentation</title>
+  <title>Package Documentation &mdash; smarc_project 0.1 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="SMaRC Simulator" href="simulator.html" />
+    <link rel="next" title="Bathymetric Graph SLAM" href="external/bathymetric_slam.html" />
     <link rel="prev" title="Welcome to the SMaRC project’s software documentation!" href="index.html" /> 
 
   
@@ -79,9 +79,20 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">SMaRC Project Documentation</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Package Documentation</a><ul>
 <li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/auvlib-docs/">auvlib</a></li>
 <li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/flexxros-docs/">flexxros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/bathymetric_slam.html">Bathymetric Graph SLAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/rosinstall.html">rosinstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/roslaunch_monitor.html">roslaunch_monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/smarc_docs.html">smarc_docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/smarc_simulations.html">smarc_simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/smarc_simulations.html#setting-up-gazebo-and-uuv-simulator">Setting up gazebo and uuv_simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/smarc_simulations.html#running-a-basic-simulation">Running a basic simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/uavcan_ros_bridge.html">uavcan_ros_bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#tutorials">Tutorials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="simulator.html">SMaRC Simulator</a></li>
 </ul>
 </li>
@@ -130,7 +141,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>SMaRC Project Documentation</li>
+      <li>Package Documentation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -149,12 +160,83 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="smarc-project-documentation">
-<h1>SMaRC Project Documentation<a class="headerlink" href="#smarc-project-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="package-documentation">
+<h1>Package Documentation<a class="headerlink" href="#package-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://nilsbore.github.io/auvlib-docs/">auvlib</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://nilsbore.github.io/flexxros-docs/">flexxros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="external/bathymetric_slam.html">Bathymetric Graph SLAM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="external/bathymetric_slam.html#dependencies-ubuntu-16-04">Dependencies (Ubuntu 16.04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/bathymetric_slam.html#building">Building</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="external/bathymetric_slam.html#available-apps">Available apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="external/bathymetric_slam.html#generating-your-own-data-from-the-smarc-simulator">Generating your own data from the SMARC simulator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="external/rosinstall.html">rosinstall</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="external/rosinstall.html#installation-instructions">Installation instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="external/rosinstall.html#install-binary-packages">Install binary packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="external/rosinstall.html#setup-a-catkin-workspace">Setup a catkin workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="external/rosinstall.html#optional-clone-additional-packages">(Optional) Clone additional packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="external/rosinstall.html#building-the-packages">Building the packages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="external/rosinstall.html#running-a-simple-example">Running a simple example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/rosinstall.html#updating-the-software-packages">Updating the software packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="external/roslaunch_monitor.html">roslaunch_monitor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="external/roslaunch_monitor.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/roslaunch_monitor.html#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="external/roslaunch_monitor.html#first-way-same-as-roslaunch">First way: same as roslaunch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="external/roslaunch_monitor.html#second-way-using-the-service">Second way: using the service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="external/roslaunch_monitor.html#third-way-using-the-api">Third way: using the API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="external/roslaunch_monitor.html#fourth-way-using-the-rqt-plugin">Fourth way: using the RQT Plugin</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="external/smarc_docs.html">smarc_docs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="external/smarc_docs.html#generating-the-documentation">Generating the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="external/smarc_docs.html#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="external/smarc_docs.html#commands">Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="external/smarc_docs.html#writing-documentation">Writing documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="external/smarc_simulations.html">smarc_simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="external/smarc_simulations.html#setting-up-gazebo-and-uuv-simulator">Setting up gazebo and uuv_simulator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="external/smarc_simulations.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/smarc_simulations.html#environment-variables">Environment variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="external/smarc_simulations.html#running-a-basic-simulation">Running a basic simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="external/smarc_simulations.html#launching">Launching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/smarc_simulations.html#playing-around">Playing around</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/smarc_simulations.html#rviz">Rviz</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="external/uavcan_ros_bridge.html">uavcan_ros_bridge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="external/uavcan_ros_bridge.html#dependencies-building">Dependencies &amp; building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/uavcan_ros_bridge.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/uavcan_ros_bridge.html#adding-new-conversions">Adding new conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external/uavcan_ros_bridge.html#existing-conversions-work-in-progress">Existing conversions (<em>work in progress</em>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="external/uavcan_ros_bridge.html#id2">ROS to UAVCAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="external/uavcan_ros_bridge.html#id3">UAVCAN to ROS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="tutorials">
+<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="simulator.html">SMaRC Simulator</a></li>
 </ul>
 </div>
@@ -168,7 +250,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="simulator.html" class="btn btn-neutral float-right" title="SMaRC Simulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="external/bathymetric_slam.html" class="btn btn-neutral float-right" title="Bathymetric Graph SLAM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Welcome to the SMaRC project’s software documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

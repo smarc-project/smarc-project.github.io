@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>roslaunch_monitor &mdash; smarc_project 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smarc_docs" href="smarc_docs.html" />
+    <link rel="prev" title="rosinstall" href="rosinstall.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> smarc_project
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../smarc_project.html">Package Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/auvlib-docs/">auvlib</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/flexxros-docs/">flexxros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bathymetric_slam.html">Bathymetric Graph SLAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rosinstall.html">rosinstall</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">roslaunch_monitor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#first-way-same-as-roslaunch">First way: same as roslaunch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#second-way-using-the-service">Second way: using the service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#third-way-using-the-api">Third way: using the API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fourth-way-using-the-rqt-plugin">Fourth way: using the RQT Plugin</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_docs.html">smarc_docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_simulations.html">smarc_simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_simulations.html#setting-up-gazebo-and-uuv-simulator">Setting up gazebo and uuv_simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_simulations.html#running-a-basic-simulation">Running a basic simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uavcan_ros_bridge.html">uavcan_ros_bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../smarc_project.html#tutorials">Tutorials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smarc_project</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../smarc_project.html">Package Documentation</a> &raquo;</li>
+        
+      <li>roslaunch_monitor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/external/roslaunch_monitor.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="roslaunch-monitor">
+<h1>roslaunch_monitor<a class="headerlink" href="#roslaunch-monitor" title="Permalink to this headline">¶</a></h1>
+<p>Provides a roslaunch server that can be invoked by actionlib, and that monitors CPU and RAM usage</p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/nilsbore/roslaunch_monitor/master/example/roslaunch_monitor.png"><img alt="User interface" src="https://raw.githubusercontent.com/nilsbore/roslaunch_monitor/master/example/roslaunch_monitor.png" /></a>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>The interface requires npyscreen: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">npyscreen</span></code></p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>There are four ways of using the monitor server.
+All of the them requires first having the <code class="docutils literal notranslate"><span class="pre">launch_server</span></code> running:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre>rosrun roslaunch_monitor launch_server.py
+</pre></div>
+</div>
+<div class="section" id="first-way-same-as-roslaunch">
+<h3>First way: same as roslaunch<a class="headerlink" href="#first-way-same-as-roslaunch" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-guess notranslate"><div class="highlight"><pre>rosrun roslaunch_monitor monitor_server.py my_pkg my_file.launch my_parameter:=42
+</pre></div>
+</div>
+</div>
+<div class="section" id="second-way-using-the-service">
+<h3>Second way: using the service<a class="headerlink" href="#second-way-using-the-service" title="Permalink to this headline">¶</a></h3>
+<p>This way requires already having a <code class="docutils literal notranslate"><span class="pre">monitor_server</span></code> instance running,
+same as above. The monitor server may also be invoked without any
+arguments. After we have the <code class="docutils literal notranslate"><span class="pre">launch_server</span></code> and <code class="docutils literal notranslate"><span class="pre">monitor_server</span></code>
+running, we can call the service:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre>rosservice call /monitor_server/monitor_launch &quot;pkg: &#39;my_pkg&#39;
+launch_file: &#39;my_file.launch&#39;
+parameters: [&#39;my_parameter&#39;]
+values: [&#39;42&#39;]
+monitor_cfg: &#39;&#39;&quot;
+</pre></div>
+</div>
+<p>The service will return the <code class="docutils literal notranslate"><span class="pre">launch_id</span></code> value, which we may keep
+track of if we want to shut down the launch file again,
+using the  following call:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre>rosservice call /monitor_server/cancel_launch &quot;launch_id: 2&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="third-way-using-the-api">
+<h3>Third way: using the API<a class="headerlink" href="#third-way-using-the-api" title="Permalink to this headline">¶</a></h3>
+<p>We may also configure our launch files programatically, in Python.
+This gives us a UI, same as the <code class="docutils literal notranslate"><span class="pre">monitor_server</span></code> above.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">from</span> <span class="nn">roslaunch_monitor.monitor_app</span> <span class="kn">import</span> <span class="n">MonitorApp</span>
+
+<span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;my_monitor_server&#39;</span><span class="p">)</span>
+
+<span class="n">App</span> <span class="o">=</span> <span class="n">MonitorApp</span><span class="p">()</span>
+
+<span class="n">slam_monitor_cfg</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;test_slam_node&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="s1">&#39;cpu_percent&#39;</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">:</span> <span class="s1">&#39;RESTART&#39;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s1">&#39;window&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span>
+                                       <span class="p">{</span><span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="s1">&#39;nbr_restarts&#39;</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">:</span> <span class="s1">&#39;KILL&#39;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}]}</span>
+<span class="n">sim_monitor_cfg</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;test_slam_sim_node&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="s1">&#39;ram_mb&#39;</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">:</span> <span class="s1">&#39;RESTART&#39;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;window&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+                                          <span class="p">{</span><span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="s1">&#39;nbr_restarts&#39;</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">:</span> <span class="s1">&#39;KILL&#39;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}]}</span>
+
+<span class="n">App</span><span class="o">.</span><span class="n">queue_launch</span><span class="p">(</span><span class="s2">&quot;rfs_slam&quot;</span><span class="p">,</span> <span class="s2">&quot;test_sim.launch&quot;</span><span class="p">,</span> <span class="n">sim_monitor_cfg</span><span class="p">)</span>
+<span class="n">App</span><span class="o">.</span><span class="n">queue_launch</span><span class="p">(</span><span class="s2">&quot;rfs_slam&quot;</span><span class="p">,</span> <span class="s2">&quot;slam.launch&quot;</span><span class="p">,</span> <span class="n">slam_monitor_cfg</span><span class="p">)</span>
+
+<span class="n">App</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fourth-way-using-the-rqt-plugin">
+<h3>Fourth way: using the RQT Plugin<a class="headerlink" href="#fourth-way-using-the-rqt-plugin" title="Permalink to this headline">¶</a></h3>
+<p>You can also launch nodes using the RQT plugin interface as shown below.
+Note that you can not use this interface for monitoring, or for killing/restarting
+individual nodes.</p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/nilsbore/roslaunch_monitor/master/example/rqt_plugin_example.png"><img alt="User interface" src="https://raw.githubusercontent.com/nilsbore/roslaunch_monitor/master/example/rqt_plugin_example.png" /></a>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="smarc_docs.html" class="btn btn-neutral float-right" title="smarc_docs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rosinstall.html" class="btn btn-neutral" title="rosinstall" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nils Bore
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
