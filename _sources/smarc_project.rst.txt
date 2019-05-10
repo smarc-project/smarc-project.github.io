@@ -4,4 +4,9 @@ SMaRC Project Documentation
 .. toctree::
    :maxdepth: 3
 
+   auvlib <https://nilsbore.github.io/auvlib-docs/>
+
+   flexxros <https://nilsbore.github.io/flexxros-docs/>
+
    simulator
+
