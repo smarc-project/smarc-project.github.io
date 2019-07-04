@@ -94,6 +94,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#running-a-simple-example">Running a simple example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#updating-the-software-packages">Updating the software packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-packages-on-an-auv">Installing packages on an AUV</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sam-auv">SAM AUV</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="roslaunch_monitor.html">roslaunch_monitor</a></li>
@@ -252,6 +256,30 @@ First, let’s launch a gazebo world in a separate terminal using:</p>
 <h2>Updating the software packages<a class="headerlink" href="#updating-the-software-packages" title="Permalink to this headline">¶</a></h2>
 <p>You can use wstool to update the SMARC packages of your workspace
 to the newest version by running <code class="docutils literal notranslate"><span class="pre">wstool</span> <span class="pre">update</span></code> inside the <code class="docutils literal notranslate"><span class="pre">catkin_ws/src</span></code> folder.</p>
+</div>
+<div class="section" id="installing-packages-on-an-auv">
+<h2>Installing packages on an AUV<a class="headerlink" href="#installing-packages-on-an-auv" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sam-auv">
+<h3>SAM AUV<a class="headerlink" href="#sam-auv" title="Permalink to this headline">¶</a></h3>
+<p>Start by installing ROS and some dependencies needed for building and running.
+NOTE: This is an incomplete list of dependencies for building on the vehicle, please fill in!</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre>sudo apt-get install ros-melodic-rosbridge-suite ros-melodic-tf2-web-republisher
+</pre></div>
+</div>
+<p>Then follow the instructions <a class="reference external" href="https://github.com/smarc-project/uavcan_ros_bridge#dependencies--building">here</a>
+to install libuavcan.</p>
+<p>You can now proceed do create a catkin workspace anywhere you like.
+Go into the <code class="docutils literal notranslate"><span class="pre">src</span></code> folder of the workspace and execute the following commands.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre>git clone https://github.com/smarc-project/uavcan_ros_bridge.git
+git clone https://gitr.sys.kth.se/smarc-project/sam_common.git
+git clone https://gitr.sys.kth.se/smarc-project/sam_drivers.git
+git clone https://gitr.sys.kth.se/smarc-project/stim300_ros_driver.git
+git clone https://github.com/nilsbore/flexxros.git
+</pre></div>
+</div>
+<p>You should now be able to execute <code class="docutils literal notranslate"><span class="pre">catkin_make</span></code> in your workspace to build everything.</p>
+<p>Follow the instructions <a class="reference external" href="https://gitr.sys.kth.se/smarc-project/stim300_ros_driver#setup">here</a> to set up the IMU.</p>
+</div>
 </div>
 </div>
 
