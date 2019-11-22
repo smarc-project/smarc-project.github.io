@@ -17,34 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'0.1',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="uavcan_ros_bridge" href="uavcan_ros_bridge.html" />
     <link rel="prev" title="smarc_docs" href="smarc_docs.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -85,7 +97,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bathymetric_slam.html">Bathymetric Graph SLAM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imc_ros_bridge.html">imc_ros_bridge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rosinstall.html">rosinstall</a></li>
-<li class="toctree-l2"><a class="reference internal" href="roslaunch_monitor.html">roslaunch_monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roslaunch_monitor.html">sam_stonefish_sim</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smarc_docs.html">smarc_docs</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">smarc_simulations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setting-up-gazebo-and-uuv-simulator">Setting up gazebo and uuv_simulator</a><ul>
@@ -180,16 +192,16 @@
 <p>Follow the instructions on <a class="reference external" href="http://gazebosim.org/tutorials?tut=install_ubuntu">http://gazebosim.org/tutorials?tut=install_ubuntu</a> and
 in <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/wiki#using-uuv-simulator-with-ros-kinetic-and-gazebo-7">https://github.com/uuvsimulator/uuv_simulator/wiki#using-uuv-simulator-with-ros-kinetic-and-gazebo-7</a> .</p>
 <p>Then clone <a class="reference external" href="https://github.com/smarc-project/uuv_simulator.git">https://github.com/smarc-project/uuv_simulator.git</a> in your catkin workspace.
-Compile it with <code class="docutils literal notranslate"><span class="pre">catkin_make</span></code>, followed by <code class="docutils literal notranslate"><span class="pre">catkin_make</span> <span class="pre">install</span></code>.</p>
+Compile it with <code class="docutils literal"><span class="pre">catkin_make</span></code>, followed by <code class="docutils literal"><span class="pre">catkin_make</span> <span class="pre">install</span></code>.</p>
 <p>Then install the following packages:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre>sudo apt-get install ros-kinetic-ros-control ros-kinetic-gazebo-ros-control ros-kinetic-joint-state-controller
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">ros</span><span class="o">-</span><span class="n">control</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">gazebo</span><span class="o">-</span><span class="n">ros</span><span class="o">-</span><span class="n">control</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">joint</span><span class="o">-</span><span class="k">state</span><span class="o">-</span><span class="n">controller</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="environment-variables">
 <h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
-<p>Add the following lines to your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, replace <code class="docutils literal notranslate"><span class="pre">GAZEBO_PREFIX</span></code> to be the path to your catkin workspace.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre>source /usr/share/gazebo-7/setup.sh
+<p>Add the following lines to your <code class="docutils literal"><span class="pre">.bashrc</span></code>, replace <code class="docutils literal"><span class="pre">GAZEBO_PREFIX</span></code> to be the path to your catkin workspace.</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span>source /usr/share/gazebo-7/setup.sh
 export GAZEBO_MODEL_DATABASE_URI=http://gazebosim.org/models
 export GAZEBO_PREFIX=<span class="nv">$HOME</span>/path/to/your/catkin_ws/install
 export GAZEBO_RESOURCE_PATH=<span class="cp">${</span><span class="n">GAZEBO_PREFIX</span><span class="cp">}</span>/share/uuv_descriptions:<span class="cp">${</span><span class="n">GAZEBO_RESOURCE_PATH</span><span class="cp">}</span>
@@ -205,34 +217,34 @@ export GAZEBO_PLUGIN_PATH=<span class="cp">${</span><span class="n">GAZEBO_PREFI
 <h2>Launching<a class="headerlink" href="#launching" title="Permalink to this headline">¶</a></h2>
 <p>Open a new tab, don’t forget to source your catkin workspace every time you do this.</p>
 <p>Then launch gazebo with an pipeline world using:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre>roslaunch smarc_worlds pipe_following.launch
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">smarc_worlds</span> <span class="n">pipe_following</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <p>Then we open a new tab and launch a simulation of the small smarc auv:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre>roslaunch smarc_auvs upload_example_auv.launch
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">smarc_auvs</span> <span class="n">upload_example_auv</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="playing-around">
 <h2>Playing around<a class="headerlink" href="#playing-around" title="Permalink to this headline">¶</a></h2>
 <p>You can fire the thruster of the AUV by running the following command, feed it a value between 0-100:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre>rostopic pub /example_auv/thrusters/0/input uuv_gazebo_r_plugins_msgs/FloatStamped &quot;header:
-  seq: 0
-  stamp:
-    secs: 0
-    nsecs: 0
-  frame_id: &#39;&#39;
-data: 100.0&quot;
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">rostopic</span> <span class="n">pub</span> <span class="o">/</span><span class="n">example_auv</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="k">input</span> <span class="n">uuv_gazebo_r_plugins_msgs</span><span class="o">/</span><span class="n">FloatStamped</span> <span class="ss">&quot;header:</span>
+<span class="ss">  seq: 0</span>
+<span class="ss">  stamp:</span>
+<span class="ss">    secs: 0</span>
+<span class="ss">    nsecs: 0</span>
+<span class="ss">  frame_id: &#39;&#39;</span>
+<span class="ss">data: 100.0&quot;</span>
 </pre></div>
 </div>
-<p>Check <code class="docutils literal notranslate"><span class="pre">rostopic</span> <span class="pre">list</span></code> and try to control e.g. the fins.</p>
+<p>Check <code class="docutils literal"><span class="pre">rostopic</span> <span class="pre">list</span></code> and try to control e.g. the fins.</p>
 </div>
 <div class="section" id="rviz">
 <h2>Rviz<a class="headerlink" href="#rviz" title="Permalink to this headline">¶</a></h2>
-<p>In rviz, you can get the camera image on <code class="docutils literal notranslate"><span class="pre">/example_auv/example_auv/camera/camera_image</span></code>
-and the left and right side scans on <code class="docutils literal notranslate"><span class="pre">example_auv/sss_left</span></code> and <code class="docutils literal notranslate"><span class="pre">example_auv/sss_right</span></code>, respectively.</p>
-<p>Rviz configs that display a lot of information for the different auvs are saved in the <code class="docutils literal notranslate"><span class="pre">smarc_auvs/rviz</span></code> folder.
-To use them, click <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Open</span> <span class="pre">Config</span></code> in rviz and navigate to the <code class="docutils literal notranslate"><span class="pre">.rviz</span></code> file that you want to use.</p>
+<p>In rviz, you can get the camera image on <code class="docutils literal"><span class="pre">/example_auv/example_auv/camera/camera_image</span></code>
+and the left and right side scans on <code class="docutils literal"><span class="pre">example_auv/sss_left</span></code> and <code class="docutils literal"><span class="pre">example_auv/sss_right</span></code>, respectively.</p>
+<p>Rviz configs that display a lot of information for the different auvs are saved in the <code class="docutils literal"><span class="pre">smarc_auvs/rviz</span></code> folder.
+To use them, click <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Open</span> <span class="pre">Config</span></code> in rviz and navigate to the <code class="docutils literal"><span class="pre">.rviz</span></code> file that you want to use.</p>
 </div>
 </div>
 
@@ -247,7 +259,7 @@ To use them, click <code class="docutils literal notranslate"><span class="pre">
         <a href="uavcan_ros_bridge.html" class="btn btn-neutral float-right" title="uavcan_ros_bridge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="smarc_docs.html" class="btn btn-neutral" title="smarc_docs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="smarc_docs.html" class="btn btn-neutral float-left" title="smarc_docs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -273,26 +285,16 @@ To use them, click <code class="docutils literal notranslate"><span class="pre">
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

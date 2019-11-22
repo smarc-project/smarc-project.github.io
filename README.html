@@ -17,32 +17,44 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'0.1',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -150,7 +162,7 @@
 <h2>Generating the documentation<a class="headerlink" href="#generating-the-documentation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="dependencies">
 <h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
-<p>Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinx</span> <span class="pre">sphinx_rtd_theme</span> <span class="pre">m2r</span></code> to get the necessary dependencies.</p>
+<p>Run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinx</span> <span class="pre">sphinx_rtd_theme</span> <span class="pre">m2r</span></code> to get the necessary dependencies.</p>
 </div>
 <div class="section" id="writing-documentation">
 <h3>Writing documentation<a class="headerlink" href="#writing-documentation" title="Permalink to this headline">¶</a></h3>
@@ -161,8 +173,8 @@ for details on how you can structure the documentation.</p>
 </div>
 <div class="section" id="updating-documentation">
 <h3>Updating documentation<a class="headerlink" href="#updating-documentation" title="Permalink to this headline">¶</a></h3>
-<p>Go into the root of <a class="reference external" href="https://github.com/smarc-project/smarc_docs">this repo</a>. Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>
-and check that all your changes look good by opening <code class="docutils literal notranslate"><span class="pre">html/index.html</span></code> in a web browser.
+<p>Go into the root of <a class="reference external" href="https://github.com/smarc-project/smarc_docs">this repo</a>. Run <code class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></code>
+and check that all your changes look good by opening <code class="docutils literal"><span class="pre">html/index.html</span></code> in a web browser.
 To get your changes into <a class="reference external" href="https://smarc-project.github.io/">https://smarc-project.github.io/</a> there are two options:</p>
 <div class="section" id="easy-option">
 <h4>Easy option<a class="headerlink" href="#easy-option" title="Permalink to this headline">¶</a></h4>
@@ -172,7 +184,7 @@ then ping &#64;nilsbore to do the rest.</p>
 <div class="section" id="hard-option">
 <h4>Hard option<a class="headerlink" href="#hard-option" title="Permalink to this headline">¶</a></h4>
 <p>First do the easy step, either by pull request or pushing directly to the repo.
-Then copy all contents of the <code class="docutils literal notranslate"><span class="pre">html</span></code> folder into the root of <a class="reference external" href="https://github.com/smarc-project/smarc-project.github.io">https://github.com/smarc-project/smarc-project.github.io</a> . Commit the changes to that repo and push or open a pull request to get the changes up to <a class="reference external" href="https://smarc-project.github.io/">https://smarc-project.github.io/</a> .</p>
+Then copy all contents of the <code class="docutils literal"><span class="pre">html</span></code> folder into the root of <a class="reference external" href="https://github.com/smarc-project/smarc-project.github.io">https://github.com/smarc-project/smarc-project.github.io</a> . Commit the changes to that repo and push or open a pull request to get the changes up to <a class="reference external" href="https://smarc-project.github.io/">https://smarc-project.github.io/</a> .</p>
 </div>
 </div>
 </div>
@@ -206,26 +218,16 @@ Then copy all contents of the <code class="docutils literal notranslate"><span c
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

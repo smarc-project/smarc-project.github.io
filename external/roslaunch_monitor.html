@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>roslaunch_monitor &mdash; smarc_project 0.1 documentation</title>
+  <title>sam_stonefish_sim &mdash; smarc_project 0.1 documentation</title>
   
 
   
@@ -17,34 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'0.1',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="smarc_docs" href="smarc_docs.html" />
     <link rel="prev" title="rosinstall" href="rosinstall.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -85,13 +97,18 @@
 <li class="toctree-l2"><a class="reference internal" href="bathymetric_slam.html">Bathymetric Graph SLAM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imc_ros_bridge.html">imc_ros_bridge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rosinstall.html">rosinstall</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">roslaunch_monitor</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#first-way-same-as-roslaunch">First way: same as roslaunch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#second-way-using-the-service">Second way: using the service</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#third-way-using-the-api">Third way: using the API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#fourth-way-using-the-rqt-plugin">Fourth way: using the RQT Plugin</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sam_stonefish_sim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#building">Building</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installing-with-vcstool">Installing with vcstool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minimum-requirements-manual">Minimum requirements (manual)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requirements-for-planner-manual">Requirements for planner (manual)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compiling">Compiling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#running">Running</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#base-sim-with-teleop">Base sim with teleop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mission-planning-with-neptus">Mission planning with neptus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#robot-like-interface">Robot-like interface</a></li>
 </ul>
 </li>
 </ul>
@@ -151,7 +168,7 @@
         
           <li><a href="../smarc_project.html">Package Documentation</a> &raquo;</li>
         
-      <li>roslaunch_monitor</li>
+      <li>sam_stonefish_sim</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -170,76 +187,119 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="roslaunch-monitor">
-<h1>roslaunch_monitor<a class="headerlink" href="#roslaunch-monitor" title="Permalink to this headline">¶</a></h1>
-<p>Provides a roslaunch server that can be invoked by actionlib, and that monitors CPU and RAM usage</p>
-<a class="reference external image-reference" href="https://raw.githubusercontent.com/nilsbore/roslaunch_monitor/master/example/roslaunch_monitor.png"><img alt="User interface" src="https://raw.githubusercontent.com/nilsbore/roslaunch_monitor/master/example/roslaunch_monitor.png" /></a>
-<div class="section" id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<p>The interface requires npyscreen: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">npyscreen</span></code></p>
-</div>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>There are four ways of using the monitor server.
-All of the them requires first having the <code class="docutils literal notranslate"><span class="pre">launch_server</span></code> running:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre>rosrun roslaunch_monitor launch_server.py
+  <div class="section" id="sam-stonefish-sim">
+<h1>sam_stonefish_sim<a class="headerlink" href="#sam-stonefish-sim" title="Permalink to this headline">¶</a></h1>
+<p>Prototype for simulating the SAM auv in stonefish. This is a work in progress
+and support for the full SAM vehicle is not there yet. Right now we support
+the following actuator commands:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">/sam/core/lcg_cmd</span></code> - <code class="docutils literal"><span class="pre">sam_msgs/PercentStamped</span></code> sets position of LCG weight 0-100%</li>
+<li><code class="docutils literal"><span class="pre">/sam/core/rpm_cmd</span></code> - <code class="docutils literal"><span class="pre">sam_msgs/ThrusterRPMs</span></code> sets rpm of the two thrusters, forward is positive</li>
+<li><code class="docutils literal"><span class="pre">/sam/core/thrust_vector_cmd</span></code> - <code class="docutils literal"><span class="pre">sam_msgs/ThrusterAngles</span></code> sets vertical and horizontal angle of thrusters</li>
+</ul>
+<div class="section" id="building">
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
+<p>Let us start by installing the dependencies.</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span>sudo apt install libsdl2-dev libglew-dev libfreetype6-dev tmux python3-vcstool ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-py-trees-ros ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-pid
 </pre></div>
 </div>
-<div class="section" id="first-way-same-as-roslaunch">
-<h3>First way: same as roslaunch<a class="headerlink" href="#first-way-same-as-roslaunch" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-guess notranslate"><div class="highlight"><pre>rosrun roslaunch_monitor monitor_server.py my_pkg my_file.launch my_parameter:=42
+<p>If you are on Ubuntu 16.04, you need to use vim (or other editor) to open the file</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">SDL2</span><span class="o">/</span><span class="n">sdl2</span><span class="o">-</span><span class="n">config</span><span class="p">.</span><span class="n">cmake</span>
+</pre></div>
+</div>
+<p>and then remove space after “-lSDL2 “. On 18.04 this is not needed.</p>
+<div class="section" id="installing-with-vcstool">
+<h3>Installing with vcstool<a class="headerlink" href="#installing-with-vcstool" title="Permalink to this headline">¶</a></h3>
+<p>Using the <code class="docutils literal"><span class="pre">python3-vcstool</span></code> dependency, we can install all of
+the packages outlined below with one simple command in our
+<code class="docutils literal"><span class="pre">catkin_ws/src</span></code> folder. If you only have access to the public
+repos (i.e. you’re not a member of the SMaRC project), use the command:</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nilsbore</span><span class="o">/</span><span class="n">sam_stonefish_sim</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">rosinstall</span><span class="o">/</span><span class="n">sam_sim</span><span class="o">.</span><span class="n">rosinstall</span> <span class="o">|</span> <span class="n">vcs</span> <span class="kn">import</span> <span class="o">--</span><span class="n">recursive</span>
+</pre></div>
+</div>
+<p>Otherwise, if you have access to <code class="docutils literal"><span class="pre">https://gitr.sys.kth.se/smarc-project</span></code>, issue:</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nilsbore</span><span class="o">/</span><span class="n">sam_stonefish_sim</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">rosinstall</span><span class="o">/</span><span class="n">sam_sim_private</span><span class="o">.</span><span class="n">rosinstall</span> <span class="o">|</span> <span class="n">vcs</span> <span class="kn">import</span> <span class="o">--</span><span class="n">recursive</span> <span class="o">--</span><span class="n">w</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>in your <code class="docutils literal"><span class="pre">catkin_ws/src</span></code> folder. This may take a few minutes, so be patient.</p>
+<p>You can now go to your <code class="docutils literal"><span class="pre">catkin_ws</span></code> and use <code class="docutils literal"><span class="pre">catkin_make</span> <span class="pre">-DCMAKE_BUILD_TYPE=Release</span></code>
+to build all of the packages needed for the simulation. No need for the build and clone
+steps below. Instead, skip to the <a class="reference external" href="https://github.com/nilsbore/sam_stonefish_sim#running">running section</a>.</p>
+</div>
+<div class="section" id="minimum-requirements-manual">
+<h3>Minimum requirements (manual)<a class="headerlink" href="#minimum-requirements-manual" title="Permalink to this headline">¶</a></h3>
+<p>Now go into the catkin workspace where you want to build the simulation,
+or create a new workspace. In the <code class="docutils literal"><span class="pre">src</span></code> folder, execute the commands,</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bitbucket</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">iquarobotics</span><span class="o">/</span><span class="n">cola2_msgs</span><span class="p">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">smarc</span><span class="o">-</span><span class="n">project</span><span class="o">/</span><span class="n">sam_common</span><span class="p">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">nilsbore</span><span class="o">/</span><span class="n">sam_stonefish_sim</span><span class="p">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">nilsbore</span><span class="o">/</span><span class="n">stonefish_ros</span><span class="p">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">stonefish_ros</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="k">update</span> <span class="c1">--init</span>
+</pre></div>
+</div>
+<p>This is everything you need if you just want to run the base sim (see below).</p>
+</div>
+<div class="section" id="requirements-for-planner-manual">
+<h3>Requirements for planner (manual)<a class="headerlink" href="#requirements-for-planner-manual" title="Permalink to this headline">¶</a></h3>
+<p>These packages are needed if you want to run the full stack including
+mission planning with Neptus and controlling the vehicle to follow the plan.</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">smarc</span><span class="o">-</span><span class="n">project</span><span class="o">/</span><span class="n">imc_ros_bridge</span><span class="p">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">smarc</span><span class="o">-</span><span class="n">project</span><span class="o">/</span><span class="n">smarc_missions</span><span class="p">.</span><span class="n">git</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="second-way-using-the-service">
-<h3>Second way: using the service<a class="headerlink" href="#second-way-using-the-service" title="Permalink to this headline">¶</a></h3>
-<p>This way requires already having a <code class="docutils literal notranslate"><span class="pre">monitor_server</span></code> instance running,
-same as above. The monitor server may also be invoked without any
-arguments. After we have the <code class="docutils literal notranslate"><span class="pre">launch_server</span></code> and <code class="docutils literal notranslate"><span class="pre">monitor_server</span></code>
-running, we can call the service:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre>rosservice call /monitor_server/monitor_launch &quot;pkg: &#39;my_pkg&#39;
-launch_file: &#39;my_file.launch&#39;
-parameters: [&#39;my_parameter&#39;]
-values: [&#39;42&#39;]
-monitor_cfg: &#39;&#39;&quot;
+<div class="section" id="compiling">
+<h3>Compiling<a class="headerlink" href="#compiling" title="Permalink to this headline">¶</a></h3>
+<p>When you fetched what you want, run <code class="docutils literal"><span class="pre">catkin_make</span> <span class="pre">-DCMAKE_BUILD_TYPE=Release</span></code> and make sure to
+source your workspace <code class="docutils literal"><span class="pre">devel/setup.bash</span></code> wherever you want to run this.</p>
+</div>
+</div>
+<div class="section" id="running">
+<h2>Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-sim-with-teleop">
+<h3>Base sim with teleop<a class="headerlink" href="#base-sim-with-teleop" title="Permalink to this headline">¶</a></h3>
+<p>Just run</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">sam_stonefish_sim</span> <span class="n">base_simulator</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 </div>
-<p>The service will return the <code class="docutils literal notranslate"><span class="pre">launch_id</span></code> value, which we may keep
-track of if we want to shut down the launch file again,
-using the  following call:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre>rosservice call /monitor_server/cancel_launch &quot;launch_id: 2&quot;
+<p>and control the vehicle like normal, with <code class="docutils literal"><span class="pre">w</span></code> for forwards, <code class="docutils literal"><span class="pre">s</span></code> for stop
+and the arrow keys for controlling the direction.</p>
+</div>
+<div class="section" id="mission-planning-with-neptus">
+<h3>Mission planning with neptus<a class="headerlink" href="#mission-planning-with-neptus" title="Permalink to this headline">¶</a></h3>
+<p>Run</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">sam_stonefish_sim</span> <span class="n">mission_simulator</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 </div>
+<p>to start everything that’s needed for the simulator and
+interfacing with neptus. Some guidance for how to add SAM
+to neptus can be found <a class="reference external" href="https://github.com/smarc-project/imc_ros_bridge">here</a>.
+It is basically the same as the <a class="reference external" href="https://github.com/smarc-project/smarc_scenarios/tree/master/bts_tutorial">BTS tutorial</a>
+and I think &#64;KKalem is working on more extensive documentation for that that
+would be just as relevant here.</p>
 </div>
-<div class="section" id="third-way-using-the-api">
-<h3>Third way: using the API<a class="headerlink" href="#third-way-using-the-api" title="Permalink to this headline">¶</a></h3>
-<p>We may also configure our launch files programatically, in Python.
-This gives us a UI, same as the <code class="docutils literal notranslate"><span class="pre">monitor_server</span></code> above.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">rospy</span>
-<span class="kn">from</span> <span class="nn">roslaunch_monitor.monitor_app</span> <span class="kn">import</span> <span class="n">MonitorApp</span>
-
-<span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;my_monitor_server&#39;</span><span class="p">)</span>
-
-<span class="n">App</span> <span class="o">=</span> <span class="n">MonitorApp</span><span class="p">()</span>
-
-<span class="n">slam_monitor_cfg</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;test_slam_node&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="s1">&#39;cpu_percent&#39;</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">:</span> <span class="s1">&#39;RESTART&#39;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s1">&#39;window&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span>
-                                       <span class="p">{</span><span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="s1">&#39;nbr_restarts&#39;</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">:</span> <span class="s1">&#39;KILL&#39;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}]}</span>
-<span class="n">sim_monitor_cfg</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;test_slam_sim_node&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="s1">&#39;ram_mb&#39;</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">:</span> <span class="s1">&#39;RESTART&#39;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;window&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
-                                          <span class="p">{</span><span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="s1">&#39;nbr_restarts&#39;</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">:</span> <span class="s1">&#39;KILL&#39;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}]}</span>
-
-<span class="n">App</span><span class="o">.</span><span class="n">queue_launch</span><span class="p">(</span><span class="s2">&quot;rfs_slam&quot;</span><span class="p">,</span> <span class="s2">&quot;test_sim.launch&quot;</span><span class="p">,</span> <span class="n">sim_monitor_cfg</span><span class="p">)</span>
-<span class="n">App</span><span class="o">.</span><span class="n">queue_launch</span><span class="p">(</span><span class="s2">&quot;rfs_slam&quot;</span><span class="p">,</span> <span class="s2">&quot;slam.launch&quot;</span><span class="p">,</span> <span class="n">slam_monitor_cfg</span><span class="p">)</span>
-
-<span class="n">App</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<div class="section" id="robot-like-interface">
+<h3>Robot-like interface<a class="headerlink" href="#robot-like-interface" title="Permalink to this headline">¶</a></h3>
+<p>The robot interface also requires <code class="docutils literal"><span class="pre">sam_common</span></code>, see above.
+Apart from that, you will need <a class="reference external" href="https://github.com/nilsbore/flexxros">flexxros</a>,
+including dependencies, and also the private <code class="docutils literal"><span class="pre">sam_controllers</span></code> package:</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">flexx</span> <span class="n">rospkg</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">tornado</span><span class="o">==</span><span class="mi">5</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">rosmon</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="o">-</span><span class="n">b</span> <span class="n">new_topics</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">nilsbore</span><span class="o">/</span><span class="n">flexxros</span><span class="p">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">gitr</span><span class="p">.</span><span class="n">sys</span><span class="p">.</span><span class="n">kth</span><span class="p">.</span><span class="n">se</span><span class="o">/</span><span class="n">smarc</span><span class="o">-</span><span class="n">project</span><span class="o">/</span><span class="n">sam_controllers</span><span class="p">.</span><span class="n">git</span>
 </pre></div>
 </div>
+<p>You then have to make sure to source your workspace in your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>, i.e. something like:</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="k">source</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="p">.</span><span class="n">bash</span>
+</pre></div>
 </div>
-<div class="section" id="fourth-way-using-the-rqt-plugin">
-<h3>Fourth way: using the RQT Plugin<a class="headerlink" href="#fourth-way-using-the-rqt-plugin" title="Permalink to this headline">¶</a></h3>
-<p>You can also launch nodes using the RQT plugin interface as shown below.
-Note that you can not use this interface for monitoring, or for killing/restarting
-individual nodes.</p>
-<a class="reference external image-reference" href="https://raw.githubusercontent.com/nilsbore/roslaunch_monitor/master/example/rqt_plugin_example.png"><img alt="User interface" src="https://raw.githubusercontent.com/nilsbore/roslaunch_monitor/master/example/rqt_plugin_example.png" /></a>
+<p>You will now be able to run the robot interface, including controllers with</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">sam_stonefish_sim</span> <span class="n">bringup</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Go to <code class="docutils literal"><span class="pre">localhost:8097</span></code> in your web browser and start the nodes there and steer the actuators!</p>
 </div>
 </div>
 </div>
@@ -255,7 +315,7 @@ individual nodes.</p>
         <a href="smarc_docs.html" class="btn btn-neutral float-right" title="smarc_docs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rosinstall.html" class="btn btn-neutral" title="rosinstall" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rosinstall.html" class="btn btn-neutral float-left" title="rosinstall" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -281,26 +341,16 @@ individual nodes.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

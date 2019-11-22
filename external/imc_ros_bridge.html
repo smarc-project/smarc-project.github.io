@@ -17,34 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'0.1',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="rosinstall" href="rosinstall.html" />
     <link rel="prev" title="Bathymetric Graph SLAM" href="bathymetric_slam.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -97,16 +109,16 @@
 <li class="toctree-l4"><a class="reference internal" href="#id2">imc_to_ros</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#neptus-sam-auv-integration">Neptus-SAM AUV Integration</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#adding-sam-to-neptus">Adding SAM to Neptus</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#moving-sam-around">Moving SAM around</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#neptus-auv-integration">Neptus-AUV Integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-vehicle-to-neptus">Adding a vehicle to Neptus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#moving-a-vehicle-around">Moving a vehicle around</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#emergency">Emergency</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="rosinstall.html">rosinstall</a></li>
-<li class="toctree-l2"><a class="reference internal" href="roslaunch_monitor.html">roslaunch_monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roslaunch_monitor.html">sam_stonefish_sim</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smarc_docs.html">smarc_docs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smarc_simulations.html">smarc_simulations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smarc_simulations.html#setting-up-gazebo-and-uuv-simulator">Setting up gazebo and uuv_simulator</a></li>
@@ -186,32 +198,32 @@
 <p>Minimal library for bridging ROS and IMC messages</p>
 <div class="section" id="building">
 <h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
-<p>A simple <code class="docutils literal notranslate"><span class="pre">catkin_make</span></code> should do.</p>
+<p>A simple <code class="docutils literal"><span class="pre">catkin_make</span></code> should do.</p>
 </div>
 <div class="section" id="launching">
 <h2>Launching<a class="headerlink" href="#launching" title="Permalink to this headline">¶</a></h2>
 <p>The command</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre>roslaunch imc_ros_bridge bridge.launch server_addr:=127.0.0.1 server_port:=6002
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">imc_ros_bridge</span> <span class="n">bridge</span><span class="p">.</span><span class="n">launch</span> <span class="n">server_addr</span><span class="p">:</span><span class="o">=</span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span> <span class="n">server_port</span><span class="p">:</span><span class="o">=</span><span class="mi">6002</span>
 </pre></div>
 </div>
-<p>will launch the <code class="docutils literal notranslate"><span class="pre">imc_bridge</span></code> node.</p>
+<p>will launch the <code class="docutils literal"><span class="pre">imc_bridge</span></code> node.</p>
 </div>
 <div class="section" id="trying-with-neptus">
 <h2>Trying with Neptus<a class="headerlink" href="#trying-with-neptus" title="Permalink to this headline">¶</a></h2>
 <p>These instructions have been tested for Ubuntu 16.04 and 18.04. For 18.04, you
 may have to comment a line in a jdk file to get it running (TODO: check path to file).</p>
-<p>First, install dependencies: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">openjdk-8-jdk-headless</span> <span class="pre">ant-optional</span></code>.</p>
+<p>First, install dependencies: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">openjdk-8-jdk-headless</span> <span class="pre">ant-optional</span></code>.</p>
 <p>Then clone and build neptus:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre>git clone https://github.com/LSTS/neptus.git
-cd neptus
-ant
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">LSTS</span><span class="o">/</span><span class="n">neptus</span><span class="p">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">neptus</span>
+<span class="n">ant</span>
 </pre></div>
 </div>
-<p>If successful, run it with <code class="docutils literal notranslate"><span class="pre">./neptus.sh</span></code>. Open the comm monitor by clicking <code class="docutils literal notranslate"><span class="pre">Communications</span> <span class="pre">&gt;</span> <span class="pre">IMC</span> <span class="pre">Comm.</span> <span class="pre">Monitor</span></code>.
-In the status panel, click the button with the IMC logo (with hover text <code class="docutils literal notranslate"><span class="pre">Start</span> <span class="pre">IMC</span> <span class="pre">comms</span></code>) to start up IMC.
+<p>If successful, run it with <code class="docutils literal"><span class="pre">./neptus.sh</span></code>. Open the comm monitor by clicking <code class="docutils literal"><span class="pre">Communications</span> <span class="pre">&gt;</span> <span class="pre">IMC</span> <span class="pre">Comm.</span> <span class="pre">Monitor</span></code>.
+In the status panel, click the button with the IMC logo (with hover text <code class="docutils literal"><span class="pre">Start</span> <span class="pre">IMC</span> <span class="pre">comms</span></code>) to start up IMC.
 Go to the all messages panel to see the messages that you publish from ROS.</p>
-<p>You can publish e.g. the <code class="docutils literal notranslate"><span class="pre">/heartbeat</span></code> message in ROS and see that it appears in the all messages panel (see “existing conversions” below):</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre>rostopic pub /heartbeat std_msgs/Empty &quot;{}&quot; --once
+<p>You can publish e.g. the <code class="docutils literal"><span class="pre">/heartbeat</span></code> message in ROS and see that it appears in the all messages panel (see “existing conversions” below):</p>
+<div class="highlight-guess"><div class="highlight"><pre><span></span><span class="n">rostopic</span> <span class="n">pub</span> <span class="o">/</span><span class="n">heartbeat</span> <span class="n">std_msgs</span><span class="o">/</span><span class="n">Empty</span> <span class="ss">&quot;{}&quot;</span> <span class="c1">--once</span>
 </pre></div>
 </div>
 <p>If you go to the systems list panel, you should also see the ROS auv displayed as a cyan panel.
@@ -223,35 +235,35 @@ see <a class="reference external" href="https://www.lsts.pt/neptus/manual/trunk/
 <div class="section" id="ros-to-imc">
 <h3>ros_to_imc<a class="headerlink" href="#ros-to-imc" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">std_msgs::Empty</span></code> on topic <code class="docutils literal notranslate"><span class="pre">/heartbeat</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">IMC::Heartbeat</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">sensor_msgs::NavSatFix</span></code> on topic <code class="docutils literal notranslate"><span class="pre">/gps_fix</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">IMC::GpsFix</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">geometry_msgs::Pose</span></code> on topic <code class="docutils literal notranslate"><span class="pre">/goto_input</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">IMC::Goto</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">sensor_msgs::NavSatFix</span></code> on topic <code class="docutils literal notranslate"><span class="pre">/gps_nav_data</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">IMC::GpsNavData</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">sensor_msgs::NavSatFix</span></code> on topic <code class="docutils literal notranslate"><span class="pre">/estimated_state</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">IMC::EstimatedState</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">imc_ros_bridge::PlanControlState</span></code> on topic <code class="docutils literal notranslate"><span class="pre">plan_control_state</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">IMC::PlanControlState</span></code></li>
+<li><code class="docutils literal"><span class="pre">std_msgs::Empty</span></code> on topic <code class="docutils literal"><span class="pre">/heartbeat</span></code> -&gt; <code class="docutils literal"><span class="pre">IMC::Heartbeat</span></code></li>
+<li><code class="docutils literal"><span class="pre">sensor_msgs::NavSatFix</span></code> on topic <code class="docutils literal"><span class="pre">/gps_fix</span></code> -&gt; <code class="docutils literal"><span class="pre">IMC::GpsFix</span></code></li>
+<li><code class="docutils literal"><span class="pre">geometry_msgs::Pose</span></code> on topic <code class="docutils literal"><span class="pre">/goto_input</span></code> -&gt; <code class="docutils literal"><span class="pre">IMC::Goto</span></code></li>
+<li><code class="docutils literal"><span class="pre">sensor_msgs::NavSatFix</span></code> on topic <code class="docutils literal"><span class="pre">/gps_nav_data</span></code> -&gt; <code class="docutils literal"><span class="pre">IMC::GpsNavData</span></code></li>
+<li><code class="docutils literal"><span class="pre">sensor_msgs::NavSatFix</span></code> on topic <code class="docutils literal"><span class="pre">/estimated_state</span></code> -&gt; <code class="docutils literal"><span class="pre">IMC::EstimatedState</span></code></li>
+<li><code class="docutils literal"><span class="pre">imc_ros_bridge::PlanControlState</span></code> on topic <code class="docutils literal"><span class="pre">plan_control_state</span></code> -&gt; <code class="docutils literal"><span class="pre">IMC::PlanControlState</span></code></li>
 </ul>
 </div>
 <div class="section" id="imc-to-ros">
 <h3>imc_to_ros<a class="headerlink" href="#imc-to-ros" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">IMC::Goto</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">geometry_msgs::Pose</span></code> on topic <code class="docutils literal notranslate"><span class="pre">/goto_waypoint</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">IMC::Abort</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">std_msgs::Empty</span></code> on topic <code class="docutils literal notranslate"><span class="pre">/abort</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">IMC::Heartbeat</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">std_msgs::Empty</span></code> on topic <code class="docutils literal notranslate"><span class="pre">/imc_heartbeat</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">IMC::PlanDB</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">std_msgs::String</span></code> on topic <code class="docutils literal notranslate"><span class="pre">/plan_db</span></code> (JSON)</li>
-<li><code class="docutils literal notranslate"><span class="pre">IMC::Plancontrol</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">imc_ros_bridge::PlanControl</span></code> on topic <code class="docutils literal notranslate"><span class="pre">/plan_control</span></code></li>
+<li><code class="docutils literal"><span class="pre">IMC::Goto</span></code> -&gt; <code class="docutils literal"><span class="pre">geometry_msgs::Pose</span></code> on topic <code class="docutils literal"><span class="pre">/goto_waypoint</span></code></li>
+<li><code class="docutils literal"><span class="pre">IMC::Abort</span></code> -&gt; <code class="docutils literal"><span class="pre">std_msgs::Empty</span></code> on topic <code class="docutils literal"><span class="pre">/abort</span></code></li>
+<li><code class="docutils literal"><span class="pre">IMC::Heartbeat</span></code> -&gt; <code class="docutils literal"><span class="pre">std_msgs::Empty</span></code> on topic <code class="docutils literal"><span class="pre">/imc_heartbeat</span></code></li>
+<li><code class="docutils literal"><span class="pre">IMC::PlanDB</span></code> -&gt; <code class="docutils literal"><span class="pre">std_msgs::String</span></code> on topic <code class="docutils literal"><span class="pre">/plan_db</span></code> (JSON)</li>
+<li><code class="docutils literal"><span class="pre">IMC::Plancontrol</span></code> -&gt; <code class="docutils literal"><span class="pre">imc_ros_bridge::PlanControl</span></code> on topic <code class="docutils literal"><span class="pre">/plan_control</span></code></li>
 </ul>
 </div>
 </div>
 <div class="section" id="creating-new-conversions">
 <h2>Creating new conversions<a class="headerlink" href="#creating-new-conversions" title="Permalink to this headline">¶</a></h2>
 <p>For each conversion in either direction, you need to create a new library
-that contains a specialized <code class="docutils literal notranslate"><span class="pre">convert</span></code> function for the types you want to convert.
-You then need to add a <code class="docutils literal notranslate"><span class="pre">BridgeServer</span></code> to the node, see details below.</p>
+that contains a specialized <code class="docutils literal"><span class="pre">convert</span></code> function for the types you want to convert.
+You then need to add a <code class="docutils literal"><span class="pre">BridgeServer</span></code> to the node, see details below.</p>
 <div class="section" id="id1">
 <h3>ros_to_imc<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Check out examples in the <code class="docutils literal notranslate"><span class="pre">include/imc_ros_bridge/ros_to_imc</span></code> and <code class="docutils literal notranslate"><span class="pre">src/ros_to_imc</span></code> folders
-for more examples. All conversions specialize the <code class="docutils literal notranslate"><span class="pre">convert</span></code> function like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span class="k">namespace</span> <span class="n">ros_to_imc</span> <span class="p">{</span>
+<p>Check out examples in the <code class="docutils literal"><span class="pre">include/imc_ros_bridge/ros_to_imc</span></code> and <code class="docutils literal"><span class="pre">src/ros_to_imc</span></code> folders
+for more examples. All conversions specialize the <code class="docutils literal"><span class="pre">convert</span></code> function like this:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">ros_to_imc</span> <span class="p">{</span>
 <span class="k">template</span> <span class="o">&lt;&gt;</span>
 <span class="kt">bool</span> <span class="n">convert</span><span class="p">(</span><span class="k">const</span> <span class="n">sensor_msgs</span><span class="o">::</span><span class="n">NavSatFix</span><span class="o">&amp;</span> <span class="n">ros_msg</span><span class="p">,</span> <span class="n">IMC</span><span class="o">::</span><span class="n">GpsFix</span><span class="o">&amp;</span> <span class="n">imc_msg</span><span class="p">)</span>
 <span class="p">{</span>
@@ -264,17 +276,17 @@ for more examples. All conversions specialize the <code class="docutils literal 
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>And they also add the bridge server to the <code class="docutils literal notranslate"><span class="pre">bridge_node</span></code> like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span class="n">ros_to_imc</span><span class="o">::</span><span class="n">BridgeServer</span><span class="o">&lt;</span><span class="n">sensor_msgs</span><span class="o">::</span><span class="n">NavSatFix</span><span class="p">,</span> <span class="n">IMC</span><span class="o">::</span><span class="n">GpsFix</span><span class="o">&gt;</span> <span class="n">gpsfix_server</span><span class="p">(</span><span class="n">ros_node</span><span class="p">,</span> <span class="n">imc_handle</span><span class="p">,</span> <span class="s">&quot;/gps_fix&quot;</span><span class="p">);</span>
+<p>And they also add the bridge server to the <code class="docutils literal"><span class="pre">bridge_node</span></code> like this:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">ros_to_imc</span><span class="o">::</span><span class="n">BridgeServer</span><span class="o">&lt;</span><span class="n">sensor_msgs</span><span class="o">::</span><span class="n">NavSatFix</span><span class="p">,</span> <span class="n">IMC</span><span class="o">::</span><span class="n">GpsFix</span><span class="o">&gt;</span> <span class="n">gpsfix_server</span><span class="p">(</span><span class="n">ros_node</span><span class="p">,</span> <span class="n">imc_handle</span><span class="p">,</span> <span class="s">&quot;/gps_fix&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>And link the convert libary into <code class="docutils literal notranslate"><span class="pre">ros_to_imc_node</span></code> in the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file.</p>
+<p>And link the convert libary into <code class="docutils literal"><span class="pre">ros_to_imc_node</span></code> in the <code class="docutils literal"><span class="pre">CMakeLists.txt</span></code> file.</p>
 </div>
 <div class="section" id="id2">
 <h3>imc_to_ros<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>Check out examples in the <code class="docutils literal notranslate"><span class="pre">include/imc_ros_bridge/imc_to_ros</span></code> and <code class="docutils literal notranslate"><span class="pre">src/imc_to_ros</span></code> folders
-for more examples. All conversions specialize the <code class="docutils literal notranslate"><span class="pre">convert</span></code> function like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span class="k">namespace</span> <span class="n">imc_to_ros</span> <span class="p">{</span>
+<p>Check out examples in the <code class="docutils literal"><span class="pre">include/imc_ros_bridge/imc_to_ros</span></code> and <code class="docutils literal"><span class="pre">src/imc_to_ros</span></code> folders
+for more examples. All conversions specialize the <code class="docutils literal"><span class="pre">convert</span></code> function like this:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">imc_to_ros</span> <span class="p">{</span>
 <span class="k">template</span> <span class="o">&lt;&gt;</span>
 <span class="kt">bool</span> <span class="n">convert</span><span class="p">(</span><span class="k">const</span> <span class="n">IMC</span><span class="o">::</span><span class="n">Goto</span><span class="o">&amp;</span> <span class="n">imc_msg</span><span class="p">,</span> <span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Pose</span><span class="o">&amp;</span> <span class="n">ros_msg</span><span class="p">)</span>
 <span class="p">{</span>
@@ -286,28 +298,36 @@ for more examples. All conversions specialize the <code class="docutils literal 
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>And they also add the bridge server to the <code class="docutils literal notranslate"><span class="pre">bridge_node</span></code> like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span class="n">imc_to_ros</span><span class="o">::</span><span class="n">BridgeServer</span><span class="o">&lt;</span><span class="n">IMC</span><span class="o">::</span><span class="n">Goto</span><span class="p">,</span> <span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Pose</span><span class="o">&gt;</span> <span class="n">goto_server</span><span class="p">(</span><span class="n">imc_handle</span><span class="p">,</span> <span class="n">ros_node</span><span class="p">,</span> <span class="s">&quot;/goto_waypoint&quot;</span><span class="p">);</span>
+<p>And they also add the bridge server to the <code class="docutils literal"><span class="pre">bridge_node</span></code> like this:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">imc_to_ros</span><span class="o">::</span><span class="n">BridgeServer</span><span class="o">&lt;</span><span class="n">IMC</span><span class="o">::</span><span class="n">Goto</span><span class="p">,</span> <span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Pose</span><span class="o">&gt;</span> <span class="n">goto_server</span><span class="p">(</span><span class="n">imc_handle</span><span class="p">,</span> <span class="n">ros_node</span><span class="p">,</span> <span class="s">&quot;/goto_waypoint&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>And link the convert libary into <code class="docutils literal notranslate"><span class="pre">imc_to_ros_node</span></code> in the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file.</p>
+<p>And link the convert libary into <code class="docutils literal"><span class="pre">imc_to_ros_node</span></code> in the <code class="docutils literal"><span class="pre">CMakeLists.txt</span></code> file.</p>
 </div>
 </div>
-<div class="section" id="neptus-sam-auv-integration">
-<h2>Neptus-SAM AUV Integration<a class="headerlink" href="#neptus-sam-auv-integration" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="adding-sam-to-neptus">
-<h3>Adding SAM to Neptus<a class="headerlink" href="#adding-sam-to-neptus" title="Permalink to this headline">¶</a></h3>
-<p>Copy <code class="docutils literal notranslate"><span class="pre">sam_files/00-sam-auv.nvcl</span></code> into <code class="docutils literal notranslate"><span class="pre">.../neptus/vehicle-defs/</span></code> and <code class="docutils literal notranslate"><span class="pre">sam_files/sam</span></code> folder into <code class="docutils literal notranslate"><span class="pre">.../neptus/vehicle_files</span></code>.
-This will add SAM to the list of vehicles available in the list, with SAM’s visuals.</p>
+<div class="section" id="neptus-auv-integration">
+<h2>Neptus-AUV Integration<a class="headerlink" href="#neptus-auv-integration" title="Permalink to this headline">¶</a></h2>
+<p>For some vehicle named <code class="docutils literal"><span class="pre">$VEHICLE</span></code>.
+In this repo, we have three vehicles available: <code class="docutils literal"><span class="pre">sam-auv</span></code>, <code class="docutils literal"><span class="pre">lolo-auv</span></code> and <code class="docutils literal"><span class="pre">imc_ros_bridge</span></code>.</p>
+<div class="section" id="adding-a-vehicle-to-neptus">
+<h3>Adding a vehicle to Neptus<a class="headerlink" href="#adding-a-vehicle-to-neptus" title="Permalink to this headline">¶</a></h3>
+<p>An arbitrary integer <code class="docutils literal"><span class="pre">$NUMBER</span></code> is used by Neptus as a convention to group together similar vehicles.</p>
+<p>Copy <code class="docutils literal"><span class="pre">neptus_vehicle_definitions/$VEHICLE_files/$NUMBER-$VEHICLE.nvcl</span></code> into <code class="docutils literal"><span class="pre">.../neptus/vehicle-defs/</span></code> and <code class="docutils literal"><span class="pre">neptus_vehicle_definitions/$VEHICLE_files/$VEHICLE</span></code> folder into <code class="docutils literal"><span class="pre">.../neptus/vehicle_files/</span></code>.
+This will add <code class="docutils literal"><span class="pre">$VEHICLE</span></code> to the list of vehicles available in Neptus’ list, with <code class="docutils literal"><span class="pre">$VEHICLE</span></code>’s visuals.</p>
+<p>Do the same thing with <code class="docutils literal"><span class="pre">imc_ros_bridge</span></code> to get a generic vehicle. The <code class="docutils literal"><span class="pre">imc_ros_bridge</span></code> fake vehicle has id 4.</p>
+<p>When starting the <code class="docutils literal"><span class="pre">imc_ros_brdige</span></code> node, be careful to set the <code class="docutils literal"><span class="pre">imc_id</span></code> parameter to the correct one, otherwise the bridge will not receive data from the respective console window. Do not forget to select the correct vehicle in the console window (top right, drop down menu) either.</p>
+<p>The <code class="docutils literal"><span class="pre">.nvcl</span></code> file contains the id of the vehicle you are adding. You can find the <code class="docutils literal"><span class="pre">imc-id</span></code> field under <code class="docutils literal"><span class="pre">&lt;communication-means&gt;</span> <span class="pre">-&gt;</span> <span class="pre">&lt;comm-mean&gt;</span> <span class="pre">-&gt;</span> <span class="pre">&lt;protocols-args&gt;</span> <span class="pre">-&gt;</span> <span class="pre">&lt;imc&gt;</span></code>. This field should be changed to whatever imc id you might want to use. It also must match the <code class="docutils literal"><span class="pre">imc_id</span></code> parameter used by the bridge node.</p>
+<p>For advanced uses of the <code class="docutils literal"><span class="pre">.nvcl</span></code> file, consult Neptus documentation.</p>
 </div>
-<div class="section" id="moving-sam-around">
-<h3>Moving SAM around<a class="headerlink" href="#moving-sam-around" title="Permalink to this headline">¶</a></h3>
-<p>Using the console (opened by going to Vehicles -&gt; SAM_AUV -&gt; console) generate a plan (In the console window: Tools -&gt; Generate plan). Select the plan on the right section of the console and click the blue arrow towards the top. This will create and send out a JSON formatted plan to the ros topic <code class="docutils literal notranslate"><span class="pre">/plan_db</span></code>. Parse this JSON, and control SAM.</p>
-<p>In order to see the updated pose of SAM in the Neptus console, publish to the ros topic <code class="docutils literal notranslate"><span class="pre">/estimated_state</span></code>. Currently only lat, lon, altitude are used. The update rate on the Neptus console can be about once every 1-2 seconds, be patient.</p>
+<div class="section" id="moving-a-vehicle-around">
+<h3>Moving a vehicle around<a class="headerlink" href="#moving-a-vehicle-around" title="Permalink to this headline">¶</a></h3>
+<p>Using the console (opened by going to Vehicles -&gt; <code class="docutils literal"><span class="pre">$VEHICLE</span></code> -&gt; click console button) generate a plan (In the console window: Tools -&gt; Generate plan or use the plan tool on the left). Select the plan on the right section of the console and click the blue arrow (upload button) towards the top. This will create and send out a JSON formatted plan to the ros topic <code class="docutils literal"><span class="pre">/plan_db</span></code>. Parse this JSON on the vehicle, and control <code class="docutils literal"><span class="pre">$VEHICLE</span></code>.</p>
+<p>In order to see the updated pose of $VEHICLE in the Neptus console, publish to the ros topic <code class="docutils literal"><span class="pre">/estimated_state</span></code>. Currently only lat, lon, altitude are used. The update rate on the Neptus console can be about once every 1-2 seconds, be patient.</p>
+<p>See <a class="reference external" href="https://github.com/smarc-project/smarc_scenarios/tree/master/bts_tutorial">this tutorial</a> for a demo that uses this bridge as part of a full planning -&gt; execution pipeline in simulation.</p>
 </div>
 <div class="section" id="emergency">
 <h3>Emergency<a class="headerlink" href="#emergency" title="Permalink to this headline">¶</a></h3>
-<p>From the Neptus console, the big red ABORT button can be used to send an empty message to the ros topic <code class="docutils literal notranslate"><span class="pre">/abort</span></code>. Probably a good idea to subscribe to this topic. Disregard the errors that pop out in the Neptus console.</p>
+<p>From the Neptus console, the big red ABORT button can be used to send an empty message to the ros topic <code class="docutils literal"><span class="pre">/abort</span></code>. Probably a good idea to subscribe to this topic. Disregard the errors that pop out in the Neptus console due to missing acoustic transponders and such.</p>
 </div>
 </div>
 </div>
@@ -323,7 +343,7 @@ This will add SAM to the list of vehicles available in the list, with SAM’s vi
         <a href="rosinstall.html" class="btn btn-neutral float-right" title="rosinstall" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="bathymetric_slam.html" class="btn btn-neutral" title="Bathymetric Graph SLAM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="bathymetric_slam.html" class="btn btn-neutral float-left" title="Bathymetric Graph SLAM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -349,26 +369,16 @@ This will add SAM to the list of vehicles available in the list, with SAM’s vi
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
