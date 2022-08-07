@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lolo_webgui &mdash; smarc_project 0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rosinstall" href="rosinstall.html" />
+    <link rel="prev" title="lolo_common" href="lolo_common.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> smarc_project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../smarc_project.html">Package Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/auvlib-docs/">auvlib</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/flexxros-docs/">flexxros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bathymetric_slam.html">Bathymetric Graph SLAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imc_ros_bridge.html">imc_ros_bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_common.html">lolo_common</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">lolo_webgui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-interface">Running the interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies-for-running-on-sam-or-elsewhere">Dependencies for running (on SAM or elsewhere)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies-when-developing">Dependencies when developing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-when-developing">Building when developing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rosinstall.html">rosinstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roswasm_suite.html">roswasm_suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_common.html">sam_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_webgui.html">sam_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbg_ros_driver.html">sbg_driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_base.html">smarc_base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_controllers.html">smarc_controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_desktop.html">smarc_desktop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_docs.html">smarc_docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_missions.html">smarc_missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_navigation.html">smarc_navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_releases.html">smarc_releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_stonefish_sims.html">smarc_stonefish_sims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_utils.html">smarc_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stim300.html">STIM 300</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html">stonefish_ros package for ROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#launching">Launching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#credits">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#funding">Funding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test-ros-release-action.html">Test ROS release action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uavcan_ros_bridge.html">uavcan_ros_bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../smarc_project.html#tutorials">Tutorials</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smarc_project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../smarc_project.html">Package Documentation</a> &raquo;</li>
+      <li>lolo_webgui</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/external/lolo_webgui.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="lolo-webgui">
+<h1>lolo_webgui<a class="headerlink" href="#lolo-webgui" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://github.com/smarc-project/lolo_webgui/workflows/CI/badge.svg?branch=master"><img alt="CI" src="https://github.com/smarc-project/lolo_webgui/workflows/CI/badge.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://opensource.org/licenses/BSD-3-Clause"><img alt="license" src="https://img.shields.io/badge/License-BSD%203--Clause-blue.svg" /></a>
+<p>Dashboard interface for the SAM AUV based on roswasm_webgui</p>
+<div class="section" id="running-the-interface">
+<h2>Running the interface<a class="headerlink" href="#running-the-interface" title="Permalink to this headline">¶</a></h2>
+<p>Run using <code class="docutils literal notranslate"><span class="pre">roslaunch</span> <span class="pre">lolo_webgui</span> <span class="pre">webgui.launch</span></code> and navigate to <code class="docutils literal notranslate"><span class="pre">1.2.3.4:8080</span></code> in a browser (preferrably chrome),
+where <code class="docutils literal notranslate"><span class="pre">1.2.3.4</span></code> should be replaced by the IP of the machine that the interface was launched on.</p>
+</div>
+<div class="section" id="dependencies-for-running-on-sam-or-elsewhere">
+<h2>Dependencies for running (on SAM or elsewhere)<a class="headerlink" href="#dependencies-for-running-on-sam-or-elsewhere" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><a class="reference external" href="https://github.com/nilsbore/roswasm_suite">roswasm_suite</a>: clone in catkin workspace with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/nilsbore/roswasm_suite.git</span></code></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/RobotWebTools/rosbridge_suite">rosbridge_suite</a> after <a class="reference external" href="https://github.com/RobotWebTools/rosbridge_suite/commit/dc7fcb282d1326d573abe83579cc7d989ae71739">the commit adding cbor-raw compression</a>, latest <code class="docutils literal notranslate"><span class="pre">develop</span></code> should do:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>git clone <a class="reference external" href="https://github.com/RobotWebTools/rosbridge_suite">https://github.com/RobotWebTools/rosbridge_suite</a> -b develop # in workspace src folder</p>
+</div></blockquote>
+<p>You can build the workspace as you would otherwise after this, but it won’t really do much since the interface is already compiled
+and can be used as-is. You do not need to do any of the following steps if you just want to run the interface.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="dependencies-when-developing">
+<h2>Dependencies when developing<a class="headerlink" href="#dependencies-when-developing" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><a class="reference external" href="https://emscripten.org/docs/getting_started/downloads.html">Emscripten</a> tested with version <code class="docutils literal notranslate"><span class="pre">1.39.10</span></code> but latest should do</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/nilsbore/roswasm_suite">roswasm_suite</a>: clone in catkin workspace with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/nilsbore/roswasm_suite.git</span></code></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/RobotWebTools/rosbridge_suite">rosbridge_suite</a> after <a class="reference external" href="https://github.com/RobotWebTools/rosbridge_suite/commit/dc7fcb282d1326d573abe83579cc7d989ae71739">the commit adding cbor-raw compression</a>, latest <code class="docutils literal notranslate"><span class="pre">develop</span></code> should do:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>git clone <a class="reference external" href="https://github.com/RobotWebTools/rosbridge_suite">https://github.com/RobotWebTools/rosbridge_suite</a> -b develop # in workspace src folder</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="building-when-developing">
+<h2>Building when developing<a class="headerlink" href="#building-when-developing" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> is recommended, since <code class="docutils literal notranslate"><span class="pre">catkin_make</span></code> might leak configurations to other packages.
+Make sure to <a class="reference external" href="https://emscripten.org/docs/getting_started/downloads.html#installation-instructions">source the Emscripten environment</a>
+before building the package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /path/to/emsdk/emsdk_env.sh
+catkin build
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lolo_common.html" class="btn btn-neutral float-left" title="lolo_common" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rosinstall.html" class="btn btn-neutral float-right" title="rosinstall" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Nils Bore.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

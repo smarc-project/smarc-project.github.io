@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STIM 300 &mdash; smarc_project 0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="stonefish_ros package for ROS" href="stonefish_ros.html" />
+    <link rel="prev" title="smarc_utils" href="smarc_utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> smarc_project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../smarc_project.html">Package Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/auvlib-docs/">auvlib</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/flexxros-docs/">flexxros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bathymetric_slam.html">Bathymetric Graph SLAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imc_ros_bridge.html">imc_ros_bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_common.html">lolo_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_webgui.html">lolo_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rosinstall.html">rosinstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roswasm_suite.html">roswasm_suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_common.html">sam_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_webgui.html">sam_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbg_ros_driver.html">sbg_driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_base.html">smarc_base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_controllers.html">smarc_controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_desktop.html">smarc_desktop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_docs.html">smarc_docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_missions.html">smarc_missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_navigation.html">smarc_navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_releases.html">smarc_releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_stonefish_sims.html">smarc_stonefish_sims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_utils.html">smarc_utils</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">STIM 300</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#communicate-with-stim300-over-terminal">Communicate with STIM300 over terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html">stonefish_ros package for ROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#launching">Launching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#credits">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#funding">Funding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test-ros-release-action.html">Test ROS release action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uavcan_ros_bridge.html">uavcan_ros_bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../smarc_project.html#tutorials">Tutorials</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smarc_project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../smarc_project.html">Package Documentation</a> &raquo;</li>
+      <li>STIM 300</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/external/stim300.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="stim-300">
+<h1>STIM 300<a class="headerlink" href="#stim-300" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://github.com/smarc-project/stim300/workflows/CI/badge.svg?branch=noetic-devel"><img alt="CI" src="https://github.com/smarc-project/stim300/workflows/CI/badge.svg?branch=noetic-devel" /></a>
+<a class="reference external image-reference" href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a>
+<p><a class="reference external" href="https://www.sensonor.com/products/inertial-measurement-units/stim300/">https://www.sensonor.com/products/inertial-measurement-units/stim300/</a></p>
+<p>Run with:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">rosrun driver_stim300 stim300_driver_node</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">roslaunch driver_stim300 stim300_driver.launch</span>
+</pre></div>
+</div>
+<p>see launch file for available parameters.</p>
+<div class="section" id="communicate-with-stim300-over-terminal">
+<h2>Communicate with STIM300 over terminal<a class="headerlink" href="#communicate-with-stim300-over-terminal" title="Permalink to this headline">¶</a></h2>
+<p>For testing and configuration during development it can be useful to comunicate with the STIM300 IMU directly over terminal.
+Here is a simple example for how to that using minicom.</p>
+<p>Install minicom:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">sudo apt-get install minicom</span>
+</pre></div>
+</div>
+<p>Look for device:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">dmesg | grep tty</span>
+</pre></div>
+</div>
+<p>Open minicom with setings:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">sudo minicom -s</span>
+</pre></div>
+</div>
+<p>Setup minicom for stim300:</p>
+<p>Serial port setup:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">A - Serial Device: /dev/ttyUSB0</span>
+<span class="err">E - 921600 8N1</span>
+<span class="err">F - Disable hardware flow control</span>
+</pre></div>
+</div>
+<p>Modem and dialing: (Clear option A…I)</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">A -</span>
+<span class="err">* -</span>
+<span class="err">* -</span>
+<span class="err">* -</span>
+<span class="err">I -</span>
+</pre></div>
+</div>
+<p>Screen and keyboard:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">P - Add linefeed</span>
+</pre></div>
+</div>
+<p>Save setup as dfl then Exit minicom, and enter again in hex display mode:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">sudo minicom -H</span>
+</pre></div>
+</div>
+<p>The stim300 is in normal mode and will reapeatidly send the standard datagram.</p>
+<p>Enter service mode: write “SERVICEMODE” and press enter</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">SERVICEMODE</span>
+</pre></div>
+</div>
+<p>Clear the screen:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">Ctrl-A c</span>
+</pre></div>
+</div>
+<p>If the incomming datagram feed stopped it means you enter service mode sucsessfully. While in service mode the stim 300 will comunicate with asci characters. Exit minicom and enter in normal ASCI mode:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">Ctrl-A x</span>
+<span class="err">sudo minicom</span>
+</pre></div>
+</div>
+<p>Write ? and press enter, and the STIM300 should send info about available commands</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">?</span>
+</pre></div>
+</div>
+<p>This will show a list on available commands including how to go back to normal mode. For example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>  <span class="k">c</span>
+
+
+<span class="n">will</span> <span class="n">perform</span> <span class="n">a</span> <span class="k">system</span> <span class="k">check</span><span class="p">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="smarc_utils.html" class="btn btn-neutral float-left" title="smarc_utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stonefish_ros.html" class="btn btn-neutral float-right" title="stonefish_ros package for ROS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Nils Bore.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

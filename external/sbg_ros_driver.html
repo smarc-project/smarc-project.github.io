@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbg_driver &mdash; smarc_project 0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smarc_base" href="smarc_base.html" />
+    <link rel="prev" title="sam_webgui" href="sam_webgui.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> smarc_project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../smarc_project.html">Package Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/auvlib-docs/">auvlib</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/flexxros-docs/">flexxros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bathymetric_slam.html">Bathymetric Graph SLAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imc_ros_bridge.html">imc_ros_bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_common.html">lolo_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_webgui.html">lolo_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rosinstall.html">rosinstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roswasm_suite.html">roswasm_suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_common.html">sam_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_webgui.html">sam_webgui</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sbg_driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation-from-packages">Installation from Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-from-sources">Building from sources</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#config-files">Config files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#default-config-files">Default config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-config-files">Example config files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#launch-files">Launch files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#default-launch-files">Default launch files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sbg-device">sbg_device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbg-device-mag">sbg_device_mag</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#howto">HowTo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configure-the-sbg-device">Configure the SBG device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calibrate-the-magnetometers">Calibrate the magnetometers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-communication-with-the-sbg-device">Enable communication with the SBG device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-udev-rules">Create udev rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#synchronize-the-ros-messages-from-an-external-time-source">Synchronize the ROS messages from an external time source</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#contributing">Contributing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bugs-and-issues">Bugs and issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features-requests-or-additions">Features requests or additions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_base.html">smarc_base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_controllers.html">smarc_controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_desktop.html">smarc_desktop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_docs.html">smarc_docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_missions.html">smarc_missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_navigation.html">smarc_navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_releases.html">smarc_releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_stonefish_sims.html">smarc_stonefish_sims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_utils.html">smarc_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stim300.html">STIM 300</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html">stonefish_ros package for ROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#launching">Launching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#credits">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#funding">Funding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test-ros-release-action.html">Test ROS release action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uavcan_ros_bridge.html">uavcan_ros_bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../smarc_project.html#tutorials">Tutorials</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smarc_project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../smarc_project.html">Package Documentation</a> &raquo;</li>
+      <li>sbg_driver</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/external/sbg_ros_driver.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="sbg-driver">
+<h1>sbg_driver<a class="headerlink" href="#sbg-driver" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://github.com/smarc-project/sbg_ros_driver/workflows/CI/badge.svg?branch=noetic-devel"><img alt="CI" src="https://github.com/smarc-project/sbg_ros_driver/workflows/CI/badge.svg?branch=noetic-devel" /></a>
+<a class="reference external image-reference" href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>ROS package for SBG Systems IMU.<span class="raw-html-m2r"><br /></span>
+The driver allows the user to configure the IMU (if possible, according to the device), to receive messages from the Sbg message protocol, publish ROS standard messages , and to calibrate the magnetometers.</p>
+<p><span class="raw-html-m2r"><i>Initial work has been done by [ENSTA Bretagne](https://github.com/ENSTABretagneRobotics).</i></span></p>
+<p><strong>Author : `SBG Systems &lt;https://www.sbg-systems.com/&gt;`_:raw-html-m2r:`&lt;br /&gt;`
+Maintainer : Hadrien Pomès, hadrien.pomes&#64;sbg-systems.com</strong></p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation-from-packages">
+<h3>Installation from Packages<a class="headerlink" href="#installation-from-packages" title="Permalink to this headline">¶</a></h3>
+<p>User can install the sbg_ros_driver through the standard ROS installation system.</p>
+<ul class="simple">
+<li>Melodic <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">ros-melodic-sbg-driver</span></code></li>
+<li>Kinectic <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">ros-kinetic-sbg-driver</span></code></li>
+<li>Lunar <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">ros-lunar-sbg-driver</span></code></li>
+</ul>
+</div>
+<div class="section" id="building-from-sources">
+<h3>Building from sources<a class="headerlink" href="#building-from-sources" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dependencies">
+<h4>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="http://wiki.ros.org/">Robot Operating System (ROS)</a></li>
+<li>SBG communication protocol sbgECom, v1.11.920-stable (full compatible with firmwares from 1.7.x).</li>
+</ul>
+</div>
+<div class="section" id="building">
+<h4>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Clone the repository (use a Release version)</li>
+<li>Build using the normal ROS catkin build system</li>
+</ol>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">cd catkin_ws/src</span>
+<span class="err">git clone https://github.com/SBG-Systems/sbg_ros_driver.git</span>
+<span class="err">cd ../</span>
+<span class="err">catkin_make</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>To run the default Ros node with the default configuration</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">roslaunch sbg_driver sbg_device.launch</span>
+</pre></div>
+</div>
+<p>To run the magnetic calibration node</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">roslaunch sbg_driver sbg_device_mag_calibration.launch</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="config-files">
+<h2>Config files<a class="headerlink" href="#config-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="default-config-files">
+<h3>Default config files<a class="headerlink" href="#default-config-files" title="Permalink to this headline">¶</a></h3>
+<p>Every configuration file is defined according to the same structure.<span class="raw-html-m2r"><br /></span></p>
+<ul class="simple">
+<li><strong>sbg_device_uart_default.yaml</strong> <span class="raw-html-m2r"><br /></span>
+This config file is the default one for Uart connection with the device. <span class="raw-html-m2r"><br /></span>
+It does not configure the device through the ROS node, so it has to be previously configured (manually or with the ROS node). <span class="raw-html-m2r"><br /></span>
+It defines a few outputs for the device :<ul>
+<li><code class="docutils literal notranslate"><span class="pre">/sbg/imu_data</span></code>, <code class="docutils literal notranslate"><span class="pre">/sbg/ekf_quat</span></code> at 25Hz</li>
+<li>ROS standard outputs <code class="docutils literal notranslate"><span class="pre">/imu/data</span></code>, <code class="docutils literal notranslate"><span class="pre">/imu/velocity</span></code>, <code class="docutils literal notranslate"><span class="pre">/imu/temp</span></code> at 25Hz</li>
+<li><code class="docutils literal notranslate"><span class="pre">/sbg/status</span></code>, <code class="docutils literal notranslate"><span class="pre">/sbg/utc_time</span></code> and <code class="docutils literal notranslate"><span class="pre">/imu/utc_ref</span></code> at 1Hz.</li>
+</ul>
+</li>
+<li><strong>sbg_device_udp_default.yaml</strong> <span class="raw-html-m2r"><br /></span>
+This config file is the default one for an Udp connection with the device. <span class="raw-html-m2r"><br /></span>
+It does not configure the device through the ROS node, so it has to be previously configured (manually or with the ROS node). <span class="raw-html-m2r"><br /></span>
+It defines a few outputs for the device :<ul>
+<li><code class="docutils literal notranslate"><span class="pre">/sbg/imu_data</span></code>, <code class="docutils literal notranslate"><span class="pre">/sbg/ekf_quat</span></code> at 25Hz</li>
+<li>ROS standard outputs <code class="docutils literal notranslate"><span class="pre">/imu/data</span></code>, <code class="docutils literal notranslate"><span class="pre">/imu/velocity</span></code>, <code class="docutils literal notranslate"><span class="pre">/imu/temp</span></code> at 25Hz</li>
+<li><code class="docutils literal notranslate"><span class="pre">/sbg/status</span></code>, <code class="docutils literal notranslate"><span class="pre">/sbg/utc_time</span></code> and <code class="docutils literal notranslate"><span class="pre">/imu/utc_ref</span></code> at 1Hz.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="example-config-files">
+<h3>Example config files<a class="headerlink" href="#example-config-files" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>ellipse_A_default.yaml</strong> <span class="raw-html-m2r"><br /></span>
+Default config file for an Ellipse-A.</li>
+<li><strong>ellipse_E_default.yaml</strong> <span class="raw-html-m2r"><br /></span>
+Default config file for an Ellipse-E with an external antenna and external Gnss.</li>
+<li><strong>ellipse_N_default.yaml</strong> <span class="raw-html-m2r"><br /></span>
+Default config file for an Ellipse-N with an external antenna and internal Gnss.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="launch-files">
+<h2>Launch files<a class="headerlink" href="#launch-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="default-launch-files">
+<h3>Default launch files<a class="headerlink" href="#default-launch-files" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>sbg_device.launch</strong> <span class="raw-html-m2r"><br /></span>
+Launch the sbg_device node to handle the receivde data, and load the <code class="docutils literal notranslate"><span class="pre">sbg_device_uart_default.yaml</span></code> configuration.</li>
+<li><strong>sbg_device_mag_calibration.launch</strong> <span class="raw-html-m2r"><br /></span>
+Launch the sbg_device_mag node to calibrate the magnetometers, and load the <code class="docutils literal notranslate"><span class="pre">ellipse_E_default.yaml</span></code> configuration.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="nodes">
+<h2>Nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sbg-device">
+<h3>sbg_device<a class="headerlink" href="#sbg-device" title="Permalink to this headline">¶</a></h3>
+<p>The sbg_device node handles the communication with the connected device, and publishes the SBG output to the Ros environment.</p>
+<div class="section" id="published-topics">
+<h4>Published Topics<a class="headerlink" href="#published-topics" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="sbg-specific-topics">
+<h5>SBG specific topics<a class="headerlink" href="#sbg-specific-topics" title="Permalink to this headline">¶</a></h5>
+<ul>
+<li><p class="first"><a href="#id1"><span class="problematic" id="id2">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/status</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgStatus.html">sbg_driver/SbgStatus</a></p>
+<p>Provides informations about the general status (Communication, Aiding, etc..).</p>
+</li>
+<li><p class="first"><a href="#id3"><span class="problematic" id="id4">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/utc_time</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgUtcTime.html">sbg_driver/SbgUtcTime</a></p>
+<p>Provides UTC time reference.</p>
+</li>
+<li><p class="first"><a href="#id5"><span class="problematic" id="id6">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/imu_data</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgImuData.html">sbg_driver/SbgImuData</a></p>
+<p>IMU status, and sensors values.</p>
+</li>
+<li><p class="first"><a href="#id7"><span class="problematic" id="id8">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/ekf_euler</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgEkfEuler.html">sbg_driver/SbgEkfEuler</a></p>
+<p>Computed orientation using Euler angles.</p>
+</li>
+<li><p class="first"><a href="#id9"><span class="problematic" id="id10">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/ekf_quat</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgEkfQuat.html">sbg_driver/SbgEkfQuat</a></p>
+<p>Computed orientation using Quaternion.</p>
+</li>
+<li><p class="first"><a href="#id11"><span class="problematic" id="id12">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/ekf_nav</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgEkfNav.html">sbg_driver/SbgEkfNav</a></p>
+<p>Computed navigation data.</p>
+</li>
+<li><p class="first"><a href="#id13"><span class="problematic" id="id14">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/mag</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgMag.html">sbg_driver/SbgMag</a></p>
+<p>Magnetic data.</p>
+</li>
+<li><p class="first"><a href="#id15"><span class="problematic" id="id16">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/mag_calib</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgMagCalib.html">sbg_driver/SbgMagCalib</a></p>
+<p>Magnetometer calibration data.</p>
+</li>
+<li><p class="first"><a href="#id17"><span class="problematic" id="id18">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/ship_motion</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgShipMotion.html">sbg_driver/SbgShipMotion</a></p>
+<p>Heave, surge and sway data.</p>
+</li>
+<li><p class="first"><a href="#id19"><span class="problematic" id="id20">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/gps_vel</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgGpsVel.html">sbg_driver/SbgGpsVel</a></p>
+<p>GPS velocities from GPS receiver.</p>
+</li>
+<li><p class="first"><a href="#id21"><span class="problematic" id="id22">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/gps_pos</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgGpsPos.html">sbg_driver/SbgGpsPos</a></p>
+<p>GPS positions from GPS receiver.</p>
+</li>
+<li><p class="first"><a href="#id23"><span class="problematic" id="id24">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/gps_hdt</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgGpsHdt.html">sbg_driver/SbgGpsHdt</a></p>
+<p>GPS true heading from dual antenna system.</p>
+</li>
+<li><p class="first"><a href="#id25"><span class="problematic" id="id26">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/gps_raw</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgGpsRaw.html">sbg_driver/SbgGpsRaw</a></p>
+<p>GPS raw data for post processing.</p>
+</li>
+<li><p class="first"><a href="#id27"><span class="problematic" id="id28">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/odo_vel</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgOdoVel.html">sbg_driver/SbgOdoVel</a></p>
+<p>Odometer velocity.</p>
+</li>
+<li><p class="first"><a href="#id29"><span class="problematic" id="id30">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/event[ABCDE]</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgEvent.html">sbg_driver/SbgEvent</a></p>
+<p>Event on sync in the corresponding pin.</p>
+</li>
+<li><p class="first"><a href="#id31"><span class="problematic" id="id32">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/pressure</span></code>** <a class="reference external" href="http://docs.ros.org/api/sbg_driver/html/msg/SbgPressure.html">sbg_driver/SbgPressure</a></p>
+<p>Pressure data.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="ros-standard-topics">
+<h5>ROS standard topics<a class="headerlink" href="#ros-standard-topics" title="Permalink to this headline">¶</a></h5>
+<p>In order to define ROS standard topics, it requires sometimes several SBG messages, to be merged.
+For each ROS standard, you have to activate the needed SBG outputs.</p>
+<ul>
+<li><p class="first"><a href="#id33"><span class="problematic" id="id34">**</span></a><code class="docutils literal notranslate"><span class="pre">/imu/data</span></code>** <a class="reference external" href="http://docs.ros.org/melodic/api/sensor_msgs/html/msg/Imu.html">sensor_msgs/Imu</a></p>
+<p>IMU data.
+Requires <code class="docutils literal notranslate"><span class="pre">/sbg/imu_data</span></code> and <code class="docutils literal notranslate"><span class="pre">/sbg/ekf_quat</span></code>.</p>
+</li>
+<li><p class="first"><a href="#id35"><span class="problematic" id="id36">**</span></a><code class="docutils literal notranslate"><span class="pre">/imu/temp</span></code>** <a class="reference external" href="http://docs.ros.org/melodic/api/sensor_msgs/html/msg/Temperature.html">sensor_msgs/Temperature</a></p>
+<p>IMU temperature data.
+Requires <code class="docutils literal notranslate"><span class="pre">/sbg/imu_data</span></code>.</p>
+</li>
+<li><p class="first"><a href="#id37"><span class="problematic" id="id38">**</span></a><code class="docutils literal notranslate"><span class="pre">/imu/velocity</span></code>** <a class="reference external" href="http://docs.ros.org/melodic/api/geometry_msgs/html/msg/TwistStamped.html">geometry_msgs/TwistStamped</a></p>
+<p>IMU velocity data.
+Requires <code class="docutils literal notranslate"><span class="pre">/sbg/imu_data</span></code> and <code class="docutils literal notranslate"><span class="pre">/sbg/ekf_nav</span></code> and either <code class="docutils literal notranslate"><span class="pre">/sbg/ekf_euler</span></code> or <code class="docutils literal notranslate"><span class="pre">/sbg/ekf_quat</span></code>.</p>
+</li>
+<li><p class="first"><a href="#id39"><span class="problematic" id="id40">**</span></a><code class="docutils literal notranslate"><span class="pre">/imu/mag</span></code>** <a class="reference external" href="http://docs.ros.org/melodic/api/sensor_msgs/html/msg/MagneticField.html">sensor_msgs/MagneticField</a></p>
+<p>IMU magnetic field.
+Requires <code class="docutils literal notranslate"><span class="pre">/sbg/mag</span></code>.</p>
+</li>
+<li><p class="first"><a href="#id41"><span class="problematic" id="id42">**</span></a><code class="docutils literal notranslate"><span class="pre">/imu/pres</span></code>** <a class="reference external" href="http://docs.ros.org/melodic/api/sensor_msgs/html/msg/FluidPressure.html">sensor_msgs/FluidPressure</a></p>
+<p>IMU pressure data.
+Requires <code class="docutils literal notranslate"><span class="pre">/sbg/pressure</span></code>.</p>
+</li>
+<li><p class="first"><a href="#id43"><span class="problematic" id="id44">**</span></a><code class="docutils literal notranslate"><span class="pre">/imu/pos_ecef</span></code>** <a class="reference external" href="http://docs.ros.org/melodic/api/geometry_msgs/html/msg/PointStamped.html">geometry_msgs/PointStamped</a></p>
+<p>Earth-Centered Earth-Fixed position.
+Requires <code class="docutils literal notranslate"><span class="pre">/sbg/ekf_nav</span></code>.</p>
+</li>
+<li><p class="first"><a href="#id45"><span class="problematic" id="id46">**</span></a><code class="docutils literal notranslate"><span class="pre">/imu/utc_ref</span></code>** <a class="reference external" href="http://docs.ros.org/melodic/api/sensor_msgs/html/msg/TimeReference.html">sensor_msgs/TimeReference</a></p>
+<p>UTC time reference.
+Requires <code class="docutils literal notranslate"><span class="pre">/sbg/utc_time</span></code>.</p>
+</li>
+<li><p class="first"><a href="#id47"><span class="problematic" id="id48">**</span></a><code class="docutils literal notranslate"><span class="pre">/imu/nav_sat_fix</span></code>** <a class="reference external" href="http://docs.ros.org/melodic/api/sensor_msgs/html/msg/NavSatFix.html">sensor_msgs/NavSatFix</a></p>
+<p>Navigation satellite fix for any Global Navigation Satellite System.
+Requires <code class="docutils literal notranslate"><span class="pre">/sbg/gps_pos</span></code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="sbg-device-mag">
+<h3>sbg_device_mag<a class="headerlink" href="#sbg-device-mag" title="Permalink to this headline">¶</a></h3>
+<p>The sbg_device_mag node handles the magnetic calibration for suitable devices.</p>
+<div class="section" id="services">
+<h4>Services<a class="headerlink" href="#services" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first"><a href="#id49"><span class="problematic" id="id50">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/mag_calibration</span></code>** <a class="reference external" href="http://docs.ros.org/api/std_srvs/html/srv/Trigger.html">std_srvs/Trigger</a></p>
+<p>Service to start/stop the magnetic calibration.</p>
+</li>
+<li><p class="first"><a href="#id51"><span class="problematic" id="id52">**</span></a><code class="docutils literal notranslate"><span class="pre">/sbg/mag_calibration_save</span></code>** <a class="reference external" href="http://docs.ros.org/api/std_srvs/html/srv/Trigger.html">std_srvs/Trigger</a></p>
+<p>Service to save the magnetic calibration to the connected device.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="howto">
+<h2>HowTo<a class="headerlink" href="#howto" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configure-the-sbg-device">
+<h3>Configure the SBG device<a class="headerlink" href="#configure-the-sbg-device" title="Permalink to this headline">¶</a></h3>
+<p>The SBG Ros driver allows the user to configure the device before starting the data handling. <span class="raw-html-m2r"><br /></span>
+To do so, set the corresponding parameter in the used config file.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err"># Configuration of the device with ROS.</span>
+<span class="c">confWithRos: true</span>
+</pre></div>
+</div>
+<p>Then, modify the desired parameters in the config file, using the <span class="raw-html-m2r"><i>SBG Firmware Manual</i></span>, to see which features are configurable, and which parameter values are available.</p>
+</div>
+<div class="section" id="calibrate-the-magnetometers">
+<h3>Calibrate the magnetometers<a class="headerlink" href="#calibrate-the-magnetometers" title="Permalink to this headline">¶</a></h3>
+<p>Ellipse-A/E/N use magnemoter to provide heading. A calibration is then required to compensate soft and hard iron distortions due to the environmenent (motors, batteries, …). The magnetic calibration procedure should be held in a non magnetic area (outside of buildings).</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">roslaunch sbg_driver sbg_device_mag_calibration.launch</span>
+<span class="err">rosservice call /sbg/mag_calibration</span>
+</pre></div>
+</div>
+<blockquote>
+<div>success: True<span class="raw-html-m2r"><br /></span>
+message: “Magnetometer calibration process started.”</div></blockquote>
+<p>Proceed rotations of the IMU (every orientation if possible).</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">rosservice call /sbg/mag_calibration</span>
+</pre></div>
+</div>
+<blockquote>
+<div>success: True<span class="raw-html-m2r"><br /></span>
+message: “Magnetometer calibration is finished. See the output console to get calibration informations.”</div></blockquote>
+<p>If the magnetic calibration is satisfaying (Quality, Confidence), it could be uploaded/saved to the device.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">rosservice call /sbg/mag_calibration_save</span>
+</pre></div>
+</div>
+<blockquote>
+<div>success: True<span class="raw-html-m2r"><br /></span>
+message: “Magnetometer calibration has been uploaded to the device.”</div></blockquote>
+</div>
+<div class="section" id="enable-communication-with-the-sbg-device">
+<h3>Enable communication with the SBG device<a class="headerlink" href="#enable-communication-with-the-sbg-device" title="Permalink to this headline">¶</a></h3>
+<p>To be able to communicate with the device, be sure that your user is part of the dialout group.<span class="raw-html-m2r"><br /></span>
+Once added, restart your machine to save and apply the changes.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">sudo adduser $USER dialout</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-udev-rules">
+<h3>Create udev rules<a class="headerlink" href="#create-udev-rules" title="Permalink to this headline">¶</a></h3>
+<p>Udev rules can be defined for communication port, in order to avoid modifying the port in configuration if it has changed.
+<a class="reference external" href="https://wiki.debian.org/udev">Udev documentation</a></p>
+<p>A symlink can be configured and defined to uniquely identify the connected device. <span class="raw-html-m2r"><br /></span>
+Once it is done, configuration file could be updated <code class="docutils literal notranslate"><span class="pre">portName:</span> <span class="pre">&quot;/dev/sbg&quot;</span></code>.</p>
+<p>See the docs folder, to see an example of rules with the corresponding screenshot using the udev functions.</p>
+</div>
+<div class="section" id="synchronize-the-ros-messages-from-an-external-time-source">
+<h3>Synchronize the ROS messages from an external time source<a class="headerlink" href="#synchronize-the-ros-messages-from-an-external-time-source" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="no-external-source">
+<h4>No external source<a class="headerlink" href="#no-external-source" title="Permalink to this headline">¶</a></h4>
+<p>When no external time source is available, the header time of messages is the system Epoch (Unix) processing time of the SBG callback, given by the <code class="docutils literal notranslate"><span class="pre">ros::Time::now()</span></code>.</p>
+</div>
+<div class="section" id="external-gnss-receiver-and-or-external-antenna">
+<h4>External Gnss receiver and/or External antenna<a class="headerlink" href="#external-gnss-receiver-and-or-external-antenna" title="Permalink to this headline">¶</a></h4>
+<p>When the SBG device is connected with an external Gnss receiver, if the device receives a full valid SBG Utc log, i.e :</p>
+<ul class="simple">
+<li>A stable input clock to be synchronized with the internal clock</li>
+<li>A valid Utc time data (with or without the leap second)</li>
+<li>The clock has converged to the PPS</li>
+</ul>
+<p>then, the time header will be computed from the last received Utc log and the device timestamp given by the internal clock.</p>
+</div>
+</div>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bugs-and-issues">
+<h3>Bugs and issues<a class="headerlink" href="#bugs-and-issues" title="Permalink to this headline">¶</a></h3>
+<p>Please report bugs and/or issues using the <a class="reference external" href="https://github.com/SBG-Systems/sbg_ros_driver/issues">Issue Tracker</a></p>
+</div>
+<div class="section" id="features-requests-or-additions">
+<h3>Features requests or additions<a class="headerlink" href="#features-requests-or-additions" title="Permalink to this headline">¶</a></h3>
+<p>In order to contribute to the code, please use Pull requests to the <code class="docutils literal notranslate"><span class="pre">devel</span></code> branch.<span class="raw-html-m2r"><br /></span>
+If you have some feature requests, use the <a class="reference external" href="https://github.com/SBG-Systems/sbg_ros_driver/issues">Issue Tracker</a> as well.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sam_webgui.html" class="btn btn-neutral float-left" title="sam_webgui" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="smarc_base.html" class="btn btn-neutral float-right" title="smarc_base" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Nils Bore.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

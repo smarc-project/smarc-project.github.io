@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bathymetric Graph SLAM &mdash; smarc_project 0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="imc_ros_bridge" href="imc_ros_bridge.html" />
+    <link rel="prev" title="Package Documentation" href="../smarc_project.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> smarc_project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../smarc_project.html">Package Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/auvlib-docs/">auvlib</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/flexxros-docs/">flexxros</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bathymetric Graph SLAM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies-ubuntu-16-04">Dependencies (Ubuntu 16.04)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building">Building</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#available-apps">Available apps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-your-own-data-from-the-smarc-simulator">Generating your own data from the SMARC simulator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-your-own-cereal-files-from-real-surveys">Generating your own cereal files from real surveys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imc_ros_bridge.html">imc_ros_bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_common.html">lolo_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_webgui.html">lolo_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rosinstall.html">rosinstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roswasm_suite.html">roswasm_suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_common.html">sam_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_webgui.html">sam_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbg_ros_driver.html">sbg_driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_base.html">smarc_base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_controllers.html">smarc_controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_desktop.html">smarc_desktop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_docs.html">smarc_docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_missions.html">smarc_missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_navigation.html">smarc_navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_releases.html">smarc_releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_stonefish_sims.html">smarc_stonefish_sims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_utils.html">smarc_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stim300.html">STIM 300</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html">stonefish_ros package for ROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#launching">Launching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#credits">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#funding">Funding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test-ros-release-action.html">Test ROS release action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uavcan_ros_bridge.html">uavcan_ros_bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../smarc_project.html#tutorials">Tutorials</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smarc_project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../smarc_project.html">Package Documentation</a> &raquo;</li>
+      <li>Bathymetric Graph SLAM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/external/bathymetric_slam.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="bathymetric-graph-slam">
+<h1>Bathymetric Graph SLAM<a class="headerlink" href="#bathymetric-graph-slam" title="Permalink to this headline">¶</a></h1>
+<p>Baseline SLAM framework for underwater vehicles.
+The algorithm gets a set of bathymetric submaps as input and corrects the global map constructed while refining the vehicle trajectory through a map-to-map registration followed by a pose graph optimization.</p>
+<div class="section" id="dependencies-ubuntu-16-04">
+<h2>Dependencies (Ubuntu 16.04)<a class="headerlink" href="#dependencies-ubuntu-16-04" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>AUVLIB <a class="reference external" href="https://github.com/nilsbore/auvlib">https://github.com/nilsbore/auvlib</a></li>
+<li>PCL  <a class="reference external" href="http://pointclouds.org/">http://pointclouds.org/</a></li>
+<li>G2O <a class="reference external" href="https://github.com/RainerKuemmerle/g2o">https://github.com/RainerKuemmerle/g2o</a></li>
+<li>Ceres <a class="reference external" href="http://ceres-solver.org/">http://ceres-solver.org/</a></li>
+</ul>
+</div>
+<div class="section" id="building">
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
+<p>Clone this repository and create a <code class="docutils literal notranslate"><span class="pre">build</span></code> folder under the root, then execute</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">cd build</span>
+<span class="err">cmake ..</span>
+<span class="err">make -j4</span>
+</pre></div>
+</div>
+<div class="section" id="available-apps">
+<h3>Available apps<a class="headerlink" href="#available-apps" title="Permalink to this headline">¶</a></h3>
+<p>There are two applications available under the <code class="docutils literal notranslate"><span class="pre">bin</span></code> folder.
+If you compile the apps with the macro “INTERACTIVE” = 1 <a class="reference external" href="https://github.com/ignaciotb/bathymetric_slam/tree/master/src/apps/src">here</a>, you’ll have to hit “q” for every step to be executed. This will allow you to visualize the before/after of the GICP registration per submap and the global graph optimization (recommended while finding your way around/debugging).
+The process outputs .png images with the maps of bathymetry and consistency error.
+The current script optimizes the graph with Ceres, but the app outputs a “graph.g2o” file which you can solve with G2O if preferred.</p>
+<div class="section" id="slam-with-simulated-data">
+<h4>SLAM with simulated data<a class="headerlink" href="#slam-with-simulated-data" title="Permalink to this headline">¶</a></h4>
+<p>In order to test the framework with data from the <a class="reference external" href="https://github.com/smarc-project">SMARC simulator</a>, use the toy dataset <code class="docutils literal notranslate"><span class="pre">map_small</span></code> under <code class="docutils literal notranslate"><span class="pre">sim_data</span></code>.
+You can visualize both the ground truth map and vehicle trajectory in the visualizer. To start the optimization process, hit “q”.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">./test_slam_simulation --folder /path/to/folder/</span>
+</pre></div>
+</div>
+<p>The simulation outputs a measure of the error contained in the map, as well as the height maps and error plots as .png files.
+To increase the complexity of the sim dataset, increase the Gaussian noise to the vehicle’s position estimate.
+In order to adapt the performance of the algorithm to the dataset, adjust the weights of the edges of the pose-graph accordingly and tune the GICP and the Ceres solver parameters.
+The algorithm is by default tuned for the toy example <code class="docutils literal notranslate"><span class="pre">map_small</span></code>.
+You can find a bigger and more challenging dataset from the simulator <a class="reference external" href="https://strands.pdc.kth.se/public/IROS-2019-Bathymetry/">here</a>.</p>
+</div>
+<div class="section" id="slam-with-real-data">
+<h4>SLAM with real data<a class="headerlink" href="#slam-with-real-data" title="Permalink to this headline">¶</a></h4>
+<p>To run the SLAM solution with real data from a bathymetric survey, currently the input is in the form of a cereal file containing all the necessary information from your data files.
+You can find a real survey carried out with an ROV <a class="reference external" href="https://strands.pdc.kth.se/public/IROS-2019-Bathymetry/">here</a>. Download it, adjust the framework values, and test it.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">./test_slam_real --file /path/to/datasets/your_data.cereal</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="generating-your-own-data-from-the-smarc-simulator">
+<h3>Generating your own data from the SMARC simulator<a class="headerlink" href="#generating-your-own-data-from-the-smarc-simulator" title="Permalink to this headline">¶</a></h3>
+<p>You can generate bigger and more complex bathymetric surveys from user-defined environments within the SMARC simulator.
+To install it, follow the instructions <a class="reference external" href="https://github.com/smarc-project/rosinstall">here</a>.
+To create and save the surveys with the default AUV and environment, run</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">roslaunch smarc_bringup auv_scenarios.launch</span>
+<span class="err">roslaunch smarc_bringup auv_system.launch</span>
+<span class="err">rosrun rviz rviz</span>
+</pre></div>
+</div>
+<p>Through the pop-up window, navigate the AUV over the area to map. You can press UP, DOWN,LEFT, RIGHT to steer, w to start the thruster, and s to stop it.
+When you have finished with the survey, move the <code class="docutils literal notranslate"><span class="pre">.pdc</span></code> files with the submaps generated from <code class="docutils literal notranslate"><span class="pre">~/.ros/</span></code> to a new folder and run the framework as explained above.</p>
+</div>
+<div class="section" id="generating-your-own-cereal-files-from-real-surveys">
+<h3>Generating your own cereal files from real surveys<a class="headerlink" href="#generating-your-own-cereal-files-from-real-surveys" title="Permalink to this headline">¶</a></h3>
+<p>Take a look at the <a class="reference external" href="https://github.com/nilsbore/auvlib">AUVLIB</a> toolbox in order to parse real MBES, SSS, navigation, etc data from the most common formats into .cereal files.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../smarc_project.html" class="btn btn-neutral float-left" title="Package Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="imc_ros_bridge.html" class="btn btn-neutral float-right" title="imc_ros_bridge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Nils Bore.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

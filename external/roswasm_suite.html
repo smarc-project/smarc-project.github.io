@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>roswasm_suite &mdash; smarc_project 0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sam_common" href="sam_common.html" />
+    <link rel="prev" title="rosinstall" href="rosinstall.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> smarc_project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../smarc_project.html">Package Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/auvlib-docs/">auvlib</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/flexxros-docs/">flexxros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bathymetric_slam.html">Bathymetric Graph SLAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imc_ros_bridge.html">imc_ros_bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_common.html">lolo_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_webgui.html">lolo_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rosinstall.html">rosinstall</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">roswasm_suite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building">Building</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#packages">Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-a-roswasm-node">Writing a roswasm node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-a-roswasm-package">Building a roswasm package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-an-emscripten-node">Running an Emscripten node</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#run-node-separately">Run node separately</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#combined-launch-file-alternative">Combined launch file (alternative)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sam_common.html">sam_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_webgui.html">sam_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbg_ros_driver.html">sbg_driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_base.html">smarc_base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_controllers.html">smarc_controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_desktop.html">smarc_desktop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_docs.html">smarc_docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_missions.html">smarc_missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_navigation.html">smarc_navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_releases.html">smarc_releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_stonefish_sims.html">smarc_stonefish_sims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_utils.html">smarc_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stim300.html">STIM 300</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html">stonefish_ros package for ROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#launching">Launching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#credits">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#funding">Funding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test-ros-release-action.html">Test ROS release action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uavcan_ros_bridge.html">uavcan_ros_bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../smarc_project.html#tutorials">Tutorials</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smarc_project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../smarc_project.html">Package Documentation</a> &raquo;</li>
+      <li>roswasm_suite</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/external/roswasm_suite.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="roswasm-suite">
+<h1>roswasm_suite<a class="headerlink" href="#roswasm-suite" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://github.com/nilsbore/roswasm_suite/workflows/CI/badge.svg"><img alt="Build Status" src="https://github.com/nilsbore/roswasm_suite/workflows/CI/badge.svg" /></a>
+<a class="reference external image-reference" href="https://github.com/nilsbore/roswasm_suite/blob/master/LICENSE.md"><img alt="license" src="https://img.shields.io/badge/License-BSD%203--Clause-blue.svg" /></a>
+<p>Libraries for compiling C++ ROS nodes to Webassembly using Emscripten. Allows you to write C++ ROS nodes similar to how you would otherwise, and to then have them run in a webbrowser and communicate with ROS through <code class="docutils literal notranslate"><span class="pre">rosbridge_websocket</span></code>.</p>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><a class="reference external" href="https://emscripten.org/docs/getting_started/downloads.html">Emscripten</a> tested with version <code class="docutils literal notranslate"><span class="pre">1.39.10</span></code> but latest should do</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/RobotWebTools/rosbridge_suite">rosbridge_suite</a> after <a class="reference external" href="https://github.com/RobotWebTools/rosbridge_suite/commit/dc7fcb282d1326d573abe83579cc7d989ae71739">the commit adding cbor-raw compression</a>, latest <code class="docutils literal notranslate"><span class="pre">develop</span></code> should do:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>git clone <a class="reference external" href="https://github.com/RobotWebTools/rosbridge_suite">https://github.com/RobotWebTools/rosbridge_suite</a> -b develop # in workspace src folder</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="building">
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code> is recommended, since <code class="docutils literal notranslate"><span class="pre">catkin_make</span></code> might leak configurations to other packages.
+Make sure to <a class="reference external" href="https://emscripten.org/docs/getting_started/downloads.html#installation-instructions">source the Emscripten environment</a>
+before building the package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /path/to/emsdk/emsdk_env.sh
+catkin build
+</pre></div>
+</div>
+</div>
+<div class="section" id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><cite>``roscpp_json_serialize`</cite> &lt;<a class="reference external" href="https://github.com/nilsbore/roswasm_suite/tree/master/roscpp_json_serialize">https://github.com/nilsbore/roswasm_suite/tree/master/roscpp_json_serialize</a>&gt;`_ - library that serializes ROS messages to and from json</li>
+<li><cite>``roswasm`</cite> &lt;<a class="reference external" href="https://github.com/nilsbore/roswasm_suite/tree/master/roswasm">https://github.com/nilsbore/roswasm_suite/tree/master/roswasm</a>&gt;`_ - contains the <code class="docutils literal notranslate"><span class="pre">roswasm</span></code> client library and configures cmake to build dependent packages using Emscripten. It supports <a class="reference external" href="https://github.com/nilsbore/roswasm_suite/tree/master/roswasm#publisher">publishers</a>, <a class="reference external" href="https://github.com/nilsbore/roswasm_suite/tree/master/roswasm#subscriber">subscribers</a>, <a class="reference external" href="https://github.com/nilsbore/roswasm_suite/tree/master/roswasm#serviceclient">service clients</a> and <a class="reference external" href="https://github.com/nilsbore/roswasm_suite/tree/master/roswasm#timer">timers</a></li>
+<li><cite>``roswasm_tutorials`</cite> &lt;<a class="reference external" href="https://github.com/nilsbore/roswasm_suite/tree/master/roswasm_tutorials">https://github.com/nilsbore/roswasm_suite/tree/master/roswasm_tutorials</a>&gt;`_ - contains examples corresponding to <code class="docutils literal notranslate"><span class="pre">talker</span></code>, <code class="docutils literal notranslate"><span class="pre">listener</span></code> and <code class="docutils literal notranslate"><span class="pre">timers</span></code> of <cite>``roscpp`</cite> &lt;<a class="reference external" href="https://github.com/ros/ros_tutorials/tree/noetic-devel/roscpp_tutorials">https://github.com/ros/ros_tutorials/tree/noetic-devel/roscpp_tutorials</a>&gt;`_</li>
+<li><cite>``roswasm_webgui`</cite> &lt;<a class="reference external" href="https://github.com/nilsbore/roswasm_suite/tree/master/roswasm_webgui">https://github.com/nilsbore/roswasm_suite/tree/master/roswasm_webgui</a>&gt;`_ - a proof of concept implementation of a ROS GUI library based on <code class="docutils literal notranslate"><span class="pre">roswasm</span></code> and <cite>``imgui`</cite> &lt;<a class="reference external" href="https://github.com/ocornut/imgui">https://github.com/ocornut/imgui</a>&gt;`_</li>
+</ul>
+</div>
+<div class="section" id="writing-a-roswasm-node">
+<h2>Writing a roswasm node<a class="headerlink" href="#writing-a-roswasm-node" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">roswasm</span></code> client library presents an API similar to <code class="docutils literal notranslate"><span class="pre">roscpp</span></code>, with the
+main differences being that most interfaces are heap allocated, and that Emscripten
+manages the event loop. Below is a shortened version of the corresponding
+<code class="docutils literal notranslate"><span class="pre">listener</span></code> example implementation.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;emscripten.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;roswasm/roswasm.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;std_msgs/String.h&gt;</span><span class="cp"></span>
+
+<span class="n">roswasm</span><span class="o">::</span><span class="n">NodeHandle</span><span class="o">*</span> <span class="n">n</span><span class="p">;</span>
+<span class="n">roswasm</span><span class="o">::</span><span class="n">Subscriber</span><span class="o">*</span> <span class="n">sub</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">chatterCallback</span><span class="p">(</span><span class="k">const</span> <span class="n">std_msgs</span><span class="o">::</span><span class="n">String</span><span class="o">&amp;</span> <span class="n">msg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;I heard: [%s]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{}</span>
+
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="n">roswasm</span><span class="o">::</span><span class="n">NodeHandle</span><span class="p">();</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">n</span><span class="o">-&gt;</span><span class="n">subscribe</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="o">::</span><span class="n">String</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;chatter&quot;</span><span class="p">,</span> <span class="n">chatterCallback</span><span class="p">);</span>
+    <span class="n">emscripten_set_main_loop</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For more complete examples, see the <cite>``roswasm_tutorials`</cite> package &lt;<a class="reference external" href="https://github.com/nilsbore/roswasm_suite/tree/master/roswasm_tutorials">https://github.com/nilsbore/roswasm_suite/tree/master/roswasm_tutorials</a>&gt;`_.</p>
+</div>
+<div class="section" id="building-a-roswasm-package">
+<h2>Building a roswasm package<a class="headerlink" href="#building-a-roswasm-package" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">roswasm</span></code> library uses <code class="docutils literal notranslate"><span class="pre">catkin</span></code> to build an emscripten project.
+All you have to do in your package that is using <code class="docutils literal notranslate"><span class="pre">roswasm</span></code> is to add
+it as a dependency in your <code class="docutils literal notranslate"><span class="pre">cmake</span></code> file and link against
+<code class="docutils literal notranslate"><span class="pre">${roswasm_LIBRARIES}</span></code>. It will automatically set the Emscripten
+<code class="docutils literal notranslate"><span class="pre">em++</span></code> compiler as the default for building and linking nodes.
+Note that you have to install and source the emscripten SDK before
+building your workspace. The following minimal <code class="docutils literal notranslate"><span class="pre">cmake</span></code> file includes
+a guard to check that Emscripten is present.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">2.8.3</span><span class="p">)</span>
+<span class="nb">project</span><span class="p">(</span><span class="s">listener</span><span class="p">)</span>
+
+<span class="nb">find_package</span><span class="p">(</span><span class="s">catkin</span> <span class="s">REQUIRED</span> <span class="s">COMPONENTS</span> <span class="s">roscpp</span> <span class="s">roswasm</span> <span class="s">std_msgs</span><span class="p">)</span>
+<span class="nb">catkin_package</span><span class="p">()</span>
+
+<span class="nb">if</span> <span class="p">(</span><span class="s">DEFINED</span> <span class="s">ENV{EMSDK}</span><span class="p">)</span>
+
+<span class="nb">include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">catkin_INCLUDE_DIRS</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">listener</span> <span class="s">src/listener.cpp</span><span class="p">)</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">listener</span> <span class="s">PROPERTIES</span> <span class="s">OUTPUT_NAME</span> <span class="s2">&quot;listener.js&quot;</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">listener</span> <span class="o">${</span><span class="nv">roswasm_LIBRARIES</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">configure_file</span><span class="p">(</span><span class="s">www/listener.html</span> <span class="o">${</span><span class="nv">CATKIN_DEVEL_PREFIX</span><span class="o">}</span><span class="s">/</span><span class="o">${</span><span class="nv">CATKIN_PACKAGE_BIN_DESTINATION</span><span class="o">}</span><span class="s">/listener.html</span> <span class="s">COPYONLY</span><span class="p">)</span>
+
+<span class="nb">endif</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-an-emscripten-node">
+<h2>Running an Emscripten node<a class="headerlink" href="#running-an-emscripten-node" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="run-node-separately">
+<h3>Run node separately<a class="headerlink" href="#run-node-separately" title="Permalink to this headline">¶</a></h3>
+<p>Before starting any of the roswasm nodes, you need to have one instance of <code class="docutils literal notranslate"><span class="pre">rosbridge_websocket</span></code> running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch rosbridge_server rosbridge_websocket.launch
+</pre></div>
+</div>
+<p>After building your node, you can run it similar to the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosrun roswasm run.py _pkg:<span class="o">=</span>roswasm_tutorials _node:<span class="o">=</span>listener.html _display_port:<span class="o">=</span><span class="m">8080</span>
+</pre></div>
+</div>
+<p>This will start a webserver and allow you to view the page at <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code>.
+If you want to see the output from the node, open the browser debug console.</p>
+</div>
+<div class="section" id="combined-launch-file-alternative">
+<h3>Combined launch file (alternative)<a class="headerlink" href="#combined-launch-file-alternative" title="Permalink to this headline">¶</a></h3>
+<p>There is a also a convenience launch file to run both <code class="docutils literal notranslate"><span class="pre">rosbridge_websocket</span></code>
+as well as your <code class="docutils literal notranslate"><span class="pre">roswasm</span></code> node at the same time:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch roswasm run_server.launch pkg:<span class="o">=</span>roswasm_tutorials node:<span class="o">=</span>listener.html
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rosinstall.html" class="btn btn-neutral float-left" title="rosinstall" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sam_common.html" class="btn btn-neutral float-right" title="sam_common" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Nils Bore.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

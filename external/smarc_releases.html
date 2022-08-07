@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>smarc_releases &mdash; smarc_project 0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smarc_stonefish_sims" href="smarc_stonefish_sims.html" />
+    <link rel="prev" title="smarc_navigation" href="smarc_navigation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> smarc_project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../smarc_project.html">Package Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/auvlib-docs/">auvlib</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/flexxros-docs/">flexxros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bathymetric_slam.html">Bathymetric Graph SLAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imc_ros_bridge.html">imc_ros_bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_common.html">lolo_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_webgui.html">lolo_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rosinstall.html">rosinstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roswasm_suite.html">roswasm_suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_common.html">sam_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_webgui.html">sam_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbg_ros_driver.html">sbg_driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_base.html">smarc_base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_controllers.html">smarc_controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_desktop.html">smarc_desktop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_docs.html">smarc_docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_missions.html">smarc_missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_navigation.html">smarc_navigation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">smarc_releases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#package-status">Package status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-and-hosting-a-release">Creating and hosting a release</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-release">Creating a release</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hosting-a-release">Hosting a release</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_stonefish_sims.html">smarc_stonefish_sims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_utils.html">smarc_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stim300.html">STIM 300</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html">stonefish_ros package for ROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#launching">Launching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#credits">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#funding">Funding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test-ros-release-action.html">Test ROS release action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uavcan_ros_bridge.html">uavcan_ros_bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../smarc_project.html#tutorials">Tutorials</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smarc_project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../smarc_project.html">Package Documentation</a> &raquo;</li>
+      <li>smarc_releases</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/external/smarc_releases.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="smarc-releases">
+<h1>smarc_releases<a class="headerlink" href="#smarc-releases" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://github.com/smarc-project/smarc_releases/workflows/release-deb/badge.svg"><img alt="release" src="https://github.com/smarc-project/smarc_releases/workflows/release-deb/badge.svg" /></a>
+<a class="reference external image-reference" href="https://opensource.org/licenses/BSD-3-Clause"><img alt="license" src="https://img.shields.io/badge/License-BSD%203--Clause-blue.svg" /></a>
+<p>CD infrastructure for the SMaRC packages</p>
+<div class="section" id="package-status">
+<h2>Package status<a class="headerlink" href="#package-status" title="Permalink to this headline">¶</a></h2>
+<p>You can check <a class="reference external" href="https://github.com/smarc-project/smarc_releases/blob/noetic-devel/rosdep/noetic/smarc.yaml">the released SMARC packages</a>
+to see if your package has been released. If you want to update one of them or release a new package,
+have a look at the <a class="reference external" href="https://github.com/smarc-project/rosinstall/blob/master/docs/release_package.md">release instructions</a>.</p>
+</div>
+<div class="section" id="creating-and-hosting-a-release">
+<h2>Creating and hosting a release<a class="headerlink" href="#creating-and-hosting-a-release" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creating-a-release">
+<h3>Creating a release<a class="headerlink" href="#creating-a-release" title="Permalink to this headline">¶</a></h3>
+<p>In the panel to the right in this repo, click on the “Releases” header. Select “Draft new release”. Click on “Choose a tag”, create a new unique tag and give it a meaningful title. Click the “Publish release” button.</p>
+<p>That is everything required to create a new binary release of all packages. If you wait for about 30-40 minutes, four zip files will appear next to the release in the releases interface.</p>
+<div class="section" id="what-do-the-different-files-contain">
+<h4>What do the different files contain?<a class="headerlink" href="#what-do-the-different-files-contain" title="Permalink to this headline">¶</a></h4>
+<p>Each release contains four files when the action is done. They will appear one by one:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">bloom-melodic-release-deb.zip</span></code> - Debian packages for ROS melodic, excluding the web GUI packages</li>
+<li><code class="docutils literal notranslate"><span class="pre">bloom-noetic-release-deb.zip</span></code> - Debian packages for ROS noetic, excluding the web GUI packages</li>
+<li><code class="docutils literal notranslate"><span class="pre">bloom-melodic-wasm-release-deb.zip</span></code> - Debian packages for ROS melodic, including the web GUI packages</li>
+<li><code class="docutils literal notranslate"><span class="pre">bloom-noetic-wasm-release-deb.zip</span></code> - Debian packages for ROS noetic, including the web GUI packages</li>
+</ul>
+<p>The last two are the ones we typically care about, since they include <strong>all</strong> packages.</p>
+</div>
+<div class="section" id="what-happens-in-the-background">
+<h4>What happens in the background?<a class="headerlink" href="#what-happens-in-the-background" title="Permalink to this headline">¶</a></h4>
+<p>Everything in the release process is automated. A new Github action will be created, called <code class="docutils literal notranslate"><span class="pre">release-deb</span></code>.
+If you click on the “Actions” panel for this repo (positioned above) you should be able to view the <code class="docutils literal notranslate"><span class="pre">release-deb</span></code>
+action triggered by the release creation.</p>
+<p>The action will try to make a release of all packages enumerated in the <a class="reference external" href="https://github.com/smarc-project/smarc_releases/blob/noetic-devel/release_repos.yaml">release_repos.yaml</a> file as well as the <a class="reference external" href="https://github.com/smarc-project/smarc_releases/blob/noetic-devel/release_repos_gui.yaml">release_repos_gui.yaml</a> file. It builds debian packages for each package, and bundles them in a zip file that gets presented in the releases interface when the action is done. If successful, it will also update the minor package version in the repos of all released packages using the <a class="reference external" href="https://github.com/smarcbot">&#64;smarcbot</a> user.</p>
+</div>
+</div>
+<div class="section" id="hosting-a-release">
+<h3>Hosting a release<a class="headerlink" href="#hosting-a-release" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Clone this repository: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/smarc-project/smarc_releases.git</span></code></li>
+<li>Go to the scripts repo: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">smarc_releases/scripts</span></code></li>
+<li>Execute <code class="docutils literal notranslate"><span class="pre">./make_package_repository.sh</span></code> to create a apt package folder within the current folder containing the release packages from this repo (it downloads <code class="docutils literal notranslate"><span class="pre">bloom-noetic-wasm-release-deb.zip</span></code> and <code class="docutils literal notranslate"><span class="pre">bloom-melodic-wasm-release-deb.zip</span></code> from the latest release)</li>
+<li>Execute <code class="docutils literal notranslate"><span class="pre">./serve_package_repository.sh</span></code> to serve the package repository from your computer. This will typically be executed from the server at KTH</li>
+<li>Test that it works by following the install instructions</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="smarc_navigation.html" class="btn btn-neutral float-left" title="smarc_navigation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="smarc_stonefish_sims.html" class="btn btn-neutral float-right" title="smarc_stonefish_sims" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Nils Bore.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

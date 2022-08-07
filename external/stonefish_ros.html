@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stonefish_ros package for ROS &mdash; smarc_project 0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Test ROS release action" href="test-ros-release-action.html" />
+    <link rel="prev" title="STIM 300" href="stim300.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> smarc_project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../smarc_project.html">Package Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/auvlib-docs/">auvlib</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/flexxros-docs/">flexxros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bathymetric_slam.html">Bathymetric Graph SLAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imc_ros_bridge.html">imc_ros_bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_common.html">lolo_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_webgui.html">lolo_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rosinstall.html">rosinstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roswasm_suite.html">roswasm_suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_common.html">sam_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_webgui.html">sam_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbg_ros_driver.html">sbg_driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_base.html">smarc_base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_controllers.html">smarc_controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_desktop.html">smarc_desktop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_docs.html">smarc_docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_missions.html">smarc_missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_navigation.html">smarc_navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_releases.html">smarc_releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_stonefish_sims.html">smarc_stonefish_sims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_utils.html">smarc_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stim300.html">STIM 300</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">stonefish_ros package for ROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#launching">Launching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#credits">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#funding">Funding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test-ros-release-action.html">Test ROS release action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uavcan_ros_bridge.html">uavcan_ros_bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../smarc_project.html#tutorials">Tutorials</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smarc_project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../smarc_project.html">Package Documentation</a> &raquo;</li>
+      <li>stonefish_ros package for ROS</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/external/stonefish_ros.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="stonefish-ros-package-for-ros">
+<h1>stonefish_ros package for ROS<a class="headerlink" href="#stonefish-ros-package-for-ros" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://github.com/smarc-project/stonefish_ros/workflows/CI/badge.svg?branch=noetic-devel"><img alt="CI" src="https://github.com/smarc-project/stonefish_ros/workflows/CI/badge.svg?branch=noetic-devel" /></a>
+<a class="reference external image-reference" href="https://www.gnu.org/licenses/gpl-3.0"><img alt="License: GPL v3" src="https://img.shields.io/badge/License-GPLv3-blue.svg" /></a>
+<p>This package delivers a ROS interface for the <em>Stonefish</em> library. It also includes a standard simulator node, which loads the simulation scenario from a scenario description file (XML). The included parser extends the standard functionality of the <em>Stonefish</em> library to enable ROS style search for files, resolution of arguments as well as a complete message interface.</p>
+</div>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li>Install the open-source <a class="reference external" href="https://github.com/patrykcieslak/stonefish">Stonefish</a> library (<em>the same version as the ROS package!</em>).</li>
+<li>Install the open-source ROS package <a class="reference external" href="https://bitbucket.org/iquarobotics/cola2_msgs">cola2_msgs</a>.</li>
+<li>Clone the <em>stonefish_ros</em> package to your catkin workspace.</li>
+<li>Compile the workspace.</li>
+</ol>
+</div>
+<div class="section" id="launching">
+<h1>Launching<a class="headerlink" href="#launching" title="Permalink to this headline">¶</a></h1>
+<p>To run the standard simulator node you have to include the ‘simulator.launch’ file in your own launch file, overriding the default arguments.
+This package does not include any examples of usage. The best way to learn how to use this package is to install the <a class="reference external" href="https://bitbucket.org/udg_cirs/cola2_stonefish">cola2_stonefish</a> package, containing multiple, fully working examples of robots, developed by the CIRS Laboratory (University of Girona, Spain).</p>
+</div>
+<div class="section" id="credits">
+<h1>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h1>
+<p>This software was written and is continuously developed by Patryk Cieślak.</p>
+<p>If you find this software useful in your research, please cite:</p>
+<p><em>Patryk Cieślak, “Stonefish: An Advanced Open-Source Simulation Tool Designed for Marine Robotics, With a ROS Interface”, In Proceedings of MTS/IEEE OCEANS 2019, June 2019, Marseille, France</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="x">@inproceedings{stonefish,</span>
+<span class="x">   author = {Cie{\&#39;s}lak, Patryk},</span>
+<span class="x">   booktitle = {OCEANS 2019 - Marseille},</span>
+<span class="x">   title = </span><span class="cp">{{</span><span class="nv">Stonefish</span><span class="o">:</span> <span class="nv">An</span> <span class="nv">Advanced</span> <span class="nv">Open-Source</span> <span class="nv">Simulation</span> <span class="nv">Tool</span> <span class="nv">Designed</span> <span class="nv">for</span> <span class="nv">Marine</span> <span class="nv">Robotics</span><span class="o">,</span> <span class="nv">With</span> <span class="nv">a</span> <span class="nv">ROS</span> <span class="nv">Interface</span><span class="cp">}}</span><span class="x">,</span>
+<span class="x">   month = jun,</span>
+<span class="x">   year = {2019},</span>
+<span class="x">   doi={10.1109/OCEANSE.2019.8867434}}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="funding">
+<h1>Funding<a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h1>
+<p>This work was part of a project titled ”Force/position control system to enable compliant manipulation from a floating I-AUV”, which received funding from the European Community H2020 Programme, under the Marie Sklodowska-Curie grant agreement no. 750063. The work was continued under a project titled ”EU Marine Robots”, which received funding from the European Community H2020 Programme, grant agreement no. 731103.</p>
+</div>
+<div class="section" id="license">
+<h1>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
+<p>This is free software, published under the General Public License v3.0.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="stim300.html" class="btn btn-neutral float-left" title="STIM 300" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="test-ros-release-action.html" class="btn btn-neutral float-right" title="Test ROS release action" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Nils Bore.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

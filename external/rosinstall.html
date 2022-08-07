@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rosinstall &mdash; smarc_project 0.1 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="roswasm_suite" href="roswasm_suite.html" />
+    <link rel="prev" title="lolo_webgui" href="lolo_webgui.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> smarc_project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../smarc_project.html">Package Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/auvlib-docs/">auvlib</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nilsbore.github.io/flexxros-docs/">flexxros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bathymetric_slam.html">Bathymetric Graph SLAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imc_ros_bridge.html">imc_ros_bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_common.html">lolo_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lolo_webgui.html">lolo_webgui</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">rosinstall</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#binary-install">Binary install</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#package-status">Package status</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-install">Manual Install</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-packages">Get packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compile-and-export">Compile and export</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-simulation">Running the simulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="roswasm_suite.html">roswasm_suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_common.html">sam_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sam_webgui.html">sam_webgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbg_ros_driver.html">sbg_driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_base.html">smarc_base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_controllers.html">smarc_controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_desktop.html">smarc_desktop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_docs.html">smarc_docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_missions.html">smarc_missions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_navigation.html">smarc_navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_releases.html">smarc_releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_stonefish_sims.html">smarc_stonefish_sims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smarc_utils.html">smarc_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stim300.html">STIM 300</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html">stonefish_ros package for ROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#launching">Launching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#credits">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#funding">Funding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stonefish_ros.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test-ros-release-action.html">Test ROS release action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uavcan_ros_bridge.html">uavcan_ros_bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../smarc_project.html#tutorials">Tutorials</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smarc_project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../smarc_project.html">Package Documentation</a> &raquo;</li>
+      <li>rosinstall</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/external/rosinstall.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="rosinstall">
+<h1>rosinstall<a class="headerlink" href="#rosinstall" title="Permalink to this headline">¶</a></h1>
+<p>Installation instructions and rosinstall configuration for the SMARC software packages</p>
+<div class="section" id="binary-install">
+<h2>Binary install<a class="headerlink" href="#binary-install" title="Permalink to this headline">¶</a></h2>
+<p>We currently support binary packages for ROS melodic on x86-64 Ubuntu 18.04 and ROS noetic on x86-64 Ubuntu 20.04.
+The following steps require first installing ROS <a class="reference external" href="http://wiki.ros.org/melodic/Installation/Ubuntu">melodic</a>
+or <a class="reference external" href="http://wiki.ros.org/noetic/Installation/Ubuntu">noetic</a>, including sourcing the ROS environment
+(<a class="reference external" href="http://wiki.ros.org/melodic/Installation/Ubuntu#melodic.2FInstallation.2FDebEnvironment.Environment_setup">melodic</a>, <a class="reference external" href="http://wiki.ros.org/noetic/Installation/Ubuntu#noetic.2FInstallation.2FDebEnvironment.Environment_setup">noetic</a>) and setting up rosdep (<a class="reference external" href="http://wiki.ros.org/melodic/Installation/Ubuntu#Installation.2FUbuntu.2FBinariesBuildDependencies.Dependencies_for_building_packages">melodic</a>, <a class="reference external" href="http://wiki.ros.org/noetic/Installation/Ubuntu#Dependencies_for_building_packages">noetic</a>).
+Execute them one-by-one, in order:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">sudo curl https://raw.githubusercontent.com/smarc-project/rosinstall/master/sources.list.d/smarc-$ROS_DISTRO-latest.list -o /etc/apt/sources.list.d/smarc-latest.list</span>
+<span class="err">sudo curl https://raw.githubusercontent.com/smarc-project/rosinstall/master/rosdep/50-smarc-$ROS_DISTRO.list -o /etc/ros/rosdep/sources.list.d/50-smarc.list</span>
+<span class="err">sudo apt update</span>
+<span class="err">sudo apt upgrade</span>
+<span class="err">rosdep update</span>
+</pre></div>
+</div>
+<p>When complete, any of the <a class="reference external" href="https://github.com/smarc-project/rosinstall/blob/master/rosdep/melodic/smarc.yaml">released SMARC packages</a>
+can be installed via <code class="docutils literal notranslate"><span class="pre">apt</span></code>. For example, to install the SAM or LOLO stonefish simulators, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">ros-$ROS_DISTRO-sam-stonefish-sim</span></code> or <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">ros-$ROS_DISTRO-lolo-stonefish-sim</span></code>.
+Running these nodes does not require sourcing any workspace.
+If you want to install <strong>all</strong> SMARC packages released for the desktop install, use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">ros-$ROS_DISTRO-smarc-desktop</span></code>.</p>
+<p>To run the simulation with the GUI, run <code class="docutils literal notranslate"><span class="pre">rosrun</span> <span class="pre">&lt;vehicle&gt;_stonefish_sim</span> <span class="pre">bringup.sh</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;vehicle&gt;</span></code> is either <code class="docutils literal notranslate"><span class="pre">sam</span></code> or <code class="docutils literal notranslate"><span class="pre">lolo</span></code>.
+To kill everything started by the bringup script, <code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">kill-session</span></code> can be used in any terminal.
+To install and run custom or non-apt packages, install catkin: <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3-catkin-tools</span></code>, configure it to install packages into the install directories: <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">config</span> <span class="pre">--install</span></code> (where you have the custom packages in <code class="docutils literal notranslate"><span class="pre">catkin_ws/src</span></code>) and then build and install things in your catkin workspace with <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span> <span class="pre">&lt;package</span> <span class="pre">name&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">name&gt;</span></code> could be omitted to build everything. These custom installed packages will override the apt-installed ones when you run the bringups.</p>
+<p>If you want to test the install by running a simple simulation, follow the <a class="reference external" href="https://github.com/smarc-project/smarc_stonefish_sims/tree/noetic-devel/sam_stonefish_sim#running">SAM instructions here</a>
+or the <a class="reference external" href="https://github.com/smarc-project/smarc_stonefish_sims/tree/noetic-devel/lolo_stonefish_sim#running">LOLO instructions here</a>.</p>
+<div class="section" id="package-status">
+<h3>Package status<a class="headerlink" href="#package-status" title="Permalink to this headline">¶</a></h3>
+<p>You can check <a class="reference external" href="https://github.com/smarc-project/rosinstall/blob/master/rosdep/melodic/smarc.yaml">the released SMARC package</a>
+to see if your package has been released.</p>
+<p>If you want to update one of them or release a new package, have a look at the <a class="reference external" href="https://github.com/smarc-project/smarc_releases">release repo</a>.</p>
+</div>
+</div>
+<div class="section" id="manual-install">
+<h2>Manual Install<a class="headerlink" href="#manual-install" title="Permalink to this headline">¶</a></h2>
+<p><strong>NOTE</strong>: It is recommanded to use the <a class="reference external" href="https://github.com/smarc-project/rosinstall#binary-install">binary install instructions</a>
+for your personal <code class="docutils literal notranslate"><span class="pre">x86-64</span></code> computer. However, if your OS is not supported or if you are installing
+on a robot with an <code class="docutils literal notranslate"><span class="pre">arm</span></code> computer, follow the instructions below.</p>
+<p>Follow the instructions here to install the SMARC ros packages.
+The instructions assume that you are running Ubuntu 16.04 and ROS Kinetic,
+or Ubuntu 18.04 and ROS Melodic, with at least <code class="docutils literal notranslate"><span class="pre">ros-${ROS_DISTRO}-desktop</span></code> packages.
+You can go to the ROS packages to find detailed installation instructions for
+<a class="reference external" href="http://wiki.ros.org/kinetic/Installation/Ubuntu">Kinetic</a>
+and <a class="reference external" href="http://wiki.ros.org/melodic/Installation/Ubuntu">Melodic</a>.
+We will assume that you have set up a <a class="reference external" href="http://wiki.ros.org/catkin/Tutorials/create_a_workspace">catkin workspace</a>
+somewhere and we will refer to the path there as <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code>.</p>
+<div class="section" id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<p>Start by installing packages needed for both the simulator and the robot:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>sudo apt install tmux python3-vcstool libsdl2-dev libglew-dev python3-pip libfreetype6-dev ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-rosmon ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-py-trees-ros ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-tf2-geometry-msgs ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-pid ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-geodesy ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-nmea-navsat-driver ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-robot-localization ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-sbg-driver
+</pre></div>
+</div>
+<p>If you want to use the web interface you will also need to install these packages with pip3:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">pip3 install flexx rospkg</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-packages">
+<h3>Get packages<a class="headerlink" href="#get-packages" title="Permalink to this headline">¶</a></h3>
+<p>The following steps assumes that you have create your <a class="reference external" href="http://wiki.ros.org/catkin/Tutorials/create_a_workspace">catkin workspace</a>
+and that you have gone to the <code class="docutils literal notranslate"><span class="pre">catkin_ws/src</span></code> folder, where we will place the packages.
+You may execute several of these commands if you want to have all packages in the same place,
+but note that the private SAM sim is a strict superset of the public one,
+so <strong>no need to install both</strong>.</p>
+<div class="section" id="open-sam-auv-simulation">
+<h4>Open SAM AUV simulation<a class="headerlink" href="#open-sam-auv-simulation" title="Permalink to this headline">¶</a></h4>
+<p>To get the packages needed for the open SAM simulation, execute:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">smarc</span><span class="o">-</span><span class="n">project</span><span class="o">/</span><span class="n">rosinstall</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">sam_sim</span><span class="o">.</span><span class="n">rosinstall</span> <span class="o">|</span> <span class="n">vcs</span> <span class="kn">import</span> <span class="o">--</span><span class="n">recursive</span>
+</pre></div>
+</div>
+<p>Note that this may take some time, so be patient.</p>
+</div>
+<div class="section" id="private-high-def-sam-auv-simulation">
+<h4>Private high-def SAM AUV simulation<a class="headerlink" href="#private-high-def-sam-auv-simulation" title="Permalink to this headline">¶</a></h4>
+<p>For this step you need to be a member of the SMaRC project and have access to <a class="reference external" href="https://gitr.sys.kth.se">KTH gitr</a>.
+To get the packages needed for higher-definition SAM simulation, execute:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">smarc</span><span class="o">-</span><span class="n">project</span><span class="o">/</span><span class="n">rosinstall</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">sam_sim_private</span><span class="o">.</span><span class="n">rosinstall</span> <span class="o">|</span> <span class="n">vcs</span> <span class="kn">import</span> <span class="o">--</span><span class="n">recursive</span> <span class="o">--</span><span class="n">w</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Note that this may take some time. You will also need to enter your account name and password several times
+unless you have added them to your keychain.</p>
+</div>
+<div class="section" id="private-sam-auv-drivers">
+<h4>Private SAM AUV drivers<a class="headerlink" href="#private-sam-auv-drivers" title="Permalink to this headline">¶</a></h4>
+<p>For this step you need to be a member of the SMaRC project and have access to <a class="reference external" href="https://gitr.sys.kth.se">KTH gitr</a>.
+The SAM AUV drivers requires a few extra dependencies:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-pcl-ros ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-gazebo-msgs ros-<span class="cp">${</span><span class="n">ROS_DISTRO</span><span class="cp">}</span>-rqt-py-trees
+</pre></div>
+</div>
+<p>You will also need to follow the <a class="reference external" href="https://github.com/smarc-project/uavcan_ros_bridge#dependencies--building">instructions here</a> to install libuavcan.</p>
+<p>To get the packages necessary for running the robot, execute:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">smarc</span><span class="o">-</span><span class="n">project</span><span class="o">/</span><span class="n">rosinstall</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">sam_robot</span><span class="o">.</span><span class="n">rosinstall</span> <span class="o">|</span> <span class="n">vcs</span> <span class="kn">import</span> <span class="o">--</span><span class="n">recursive</span> <span class="o">--</span><span class="n">w</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Note that this may take some time. You will also need to enter your account name and password several times
+unless you have added them to your keychain.</p>
+</div>
+</div>
+<div class="section" id="compile-and-export">
+<h3>Compile and export<a class="headerlink" href="#compile-and-export" title="Permalink to this headline">¶</a></h3>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">catkin_ws</span></code> folder, execute:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">catkin_make -DCMAKE_BUILD_TYPE=Release</span>
+</pre></div>
+</div>
+<p>When finished, you may want to add the workspace to
+your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>. Note that you need to modify the path to the workspace:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">echo &quot;source /path/to/catkin_ws/devel/setup.bash&quot; &gt;&gt; ~/.bashrc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-the-simulation">
+<h3>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h3>
+<p>These instructions assume that you have installed flexx and rospkg from the
+instructions above. You may encounter problems if you have installed
+an older version of <code class="docutils literal notranslate"><span class="pre">robot-webtools</span></code> under <code class="docutils literal notranslate"><span class="pre">Kinetic</span></code>. In that case, you
+may need to explicitly install a certain version of tornado, e.g. using <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">tornado==5</span></code>.</p>
+<p>Run the simulator with the web GUI using:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">rosrun sam_stonefish_sim bringup.sh</span>
+</pre></div>
+</div>
+<p>This will open a tmux session with everything needed to run
+the base simulator, including mission planning and execution.
+If you also want to run the attitude controllers (only available in private version),
+you need to go into tab number 3 in the tmux session and press enter to execute those.</p>
+<p>Open a web browser and go to the address <cite>``http://localhost:8097/`</cite> &lt;<a class="reference external" href="http://localhost:8097/">http://localhost:8097/</a>&gt;`_.</p>
+<ol class="arabic simple">
+<li>Press the <code class="docutils literal notranslate"><span class="pre">start</span></code> button next to <code class="docutils literal notranslate"><span class="pre">p2_sam_sim</span></code> to run the simulation. You can now move the <code class="docutils literal notranslate"><span class="pre">Actuator</span> <span class="pre">setpoint</span></code> sliders of the LCG and VBS actuators in the web gui. You can see the effect of this on the vehicle in the simulatio window</li>
+<li>Press the <code class="docutils literal notranslate"><span class="pre">start</span></code> button next to <code class="docutils literal notranslate"><span class="pre">p4_sam_nav</span></code> to run the mission executor. If you want to plan and run a plan using <a class="reference external" href="https://lsts.fe.up.pt/toolchain/neptus">Neptus</a>, follow the instructions <a class="reference external" href="https://github.com/smarc-project/imc_ros_bridge#neptus-auv-integration">here</a>.</li>
+<li>If you start the attitude controllers in tab 3 of the tmux section, you can also press <code class="docutils literal notranslate"><span class="pre">start</span></code> next to <code class="docutils literal notranslate"><span class="pre">p3_sam_att_ctrl</span></code>. You can then change the <code class="docutils literal notranslate"><span class="pre">Controller</span> <span class="pre">setpoint</span></code> slider to change the pitch and depth directly</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lolo_webgui.html" class="btn btn-neutral float-left" title="lolo_webgui" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="roswasm_suite.html" class="btn btn-neutral float-right" title="roswasm_suite" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Nils Bore.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
